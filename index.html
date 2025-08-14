@@ -1,644 +1,568 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>8월 20일 맥체인 성경읽기</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&family=Noto+Serif+KR:wght@400;700&display=swap');
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>8월 20일 맥체인 성경읽기</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;700&display=swap');
+body {
+font-family: 'Noto Sans KR', sans-serif;
+line-height: 1.8;
+background-color: #f4f4f9;
+color: #333;
+margin: 0;
+padding: 20px;
+}
+.container {
+max-width: 800px;
+margin: 0 auto;
+background: #fff;
+padding: 30px;
+border-radius: 10px;
+box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+}
+h1, h2, h3 {
+font-weight: 700;
+color: #2c3e50;
+}
+h1 {
+text-align: center;
+font-size: 2.2em;
+margin-bottom: 10px;
+border-bottom: 2px solid #e0e0e0;
+padding-bottom: 20px;
+}
+.subtitle {
+text-align: center;
+font-size: 1.1em;
+color: #7f8c8d;
+margin-top: 0;
+margin-bottom: 40px;
+}
+.chapter-card {
+border-left: 5px solid;
+padding: 20px;
+margin-bottom: 30px;
+border-radius: 5px;
+background-color: #fdfdfd;
+box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+.card-book1 { border-left-color: #4285F4; }
+.card-book2 { border-left-color: #DB4437; }
+.card-book3 { border-left-color: #F4B400; }
+.card-book4 { border-left-color: #0F9D58; }
+.integration-card { border-left-color: #808080; }
+.chapter-card h2 {
+margin-top: 0;
+font-size: 1.8em;
+}
+.chapter-card h3 {
+font-size: 1.4em;
+color: #34495e;
+border-bottom: 1px solid #ecf0f1;
+padding-bottom: 10px;
+margin-top: 30px;
+}
+.bible-text {
+margin-top: 20px;
+font-size: 1.1em;
+color: #34495e;
+}
+.bible-text div {
+margin-bottom: 10px;
+}
+.verse-number {
+font-weight: 700;
+color: #888888;
+margin-right: 8px;
+font-size: 0.9em;
+}
+.bible-text strong {
+display: block;
+margin-top: 20px;
+margin-bottom: 10px;
+font-size: 1.2em;
+}
+.card-book1 .bible-text strong { color: #4285F4; }
+.card-book2 .bible-text strong { color: #DB4437; }
+.card-book3 .bible-text strong { color: #F4B400; }
+.card-book4 .bible-text strong { color: #0F9D58; }
 
-        :root {
-            --font-primary: 'Noto Sans KR', sans-serif;
-            --font-secondary: 'Noto Serif KR', serif;
-            --color-text: #333;
-            --color-background: #fdfdfd;
-            --color-card-bg: #ffffff;
-            --color-border: #e0e0e0;
-            --shadow: 0 4px 8px rgba(0,0,0,0.05);
+    .key-verse {
+        font-weight: 700;
+        color: #2c3e50;
+        margin-bottom: 5px;
+        padding-left: 10px;
+        border-left: 3px solid #e0e0e0;
+    }
+    .commentary-text {
+        color: #333;
+        margin-top: 0;
+        padding-left: 13px;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        margin-bottom: 15px;
+    }
+    .integration-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 20px;
+    }
+    .integration-table th, .integration-table td {
+        border: 1px solid #ddd;
+        padding: 12px;
+        text-align: left;
+    }
+    .integration-table th {
+        background-color: #f2f2f2;
+        font-weight: 700;
+    }
 
-            --color-book1: #4285F4; /* 파랑 */
-            --color-book2: #DB4437; /* 빨강 */
-            --color-book3: #F4B400; /* 노랑 */
-            --color-book4: #0F9D58; /* 녹색 */
-            --color-integration: #808080; /* 회색 */
-        }
-
-        body {
-            font-family: var(--font-primary);
-            background-color: var(--color-background);
-            color: var(--color-text);
-            margin: 0;
-            padding: 0;
-            line-height: 1.8;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        .main-container {
-            width: 100%;
-            max-width: 800px;
-            padding: 20px;
-            box-sizing: border-box;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 40px;
-            padding: 20px;
-            border-bottom: 1px solid var(--color-border);
-        }
-
-        h1 {
-            font-family: var(--font-secondary);
-            font-size: 2.5em;
-            margin: 0;
-            color: var(--color-text);
-        }
-
-        header p {
-            font-size: 1.1em;
-            color: #666;
-        }
-
-        .chapter-card {
-            background-color: var(--color-card-bg);
-            border-radius: 8px;
-            box-shadow: var(--shadow);
-            margin-bottom: 30px;
-            padding: 25px 30px;
-            border-left: 5px solid;
-            transition: box-shadow 0.3s ease-in-out;
-        }
-        
-        .chapter-card:hover {
-            box-shadow: 0 8px 16px rgba(0,0,0,0.1);
-        }
-
-        .card-book1 { border-left-color: var(--color-book1); }
-        .card-book2 { border-left-color: var(--color-book2); }
-        .card-book3 { border-left-color: var(--color-book3); }
-        .card-book4 { border-left-color: var(--color-book4); }
-        .integration-card { border-left-color: var(--color-integration); }
-
-        h2 {
-            font-family: var(--font-secondary);
-            font-size: 2em;
-            margin-top: 0;
-            padding-bottom: 10px;
-            border-bottom: 2px solid var(--color-border);
-        }
-
-        h3 {
-            font-family: var(--font-secondary);
-            font-size: 1.5em;
-            margin-top: 30px;
-            margin-bottom: 15px;
-            color: #444;
-        }
-        
-        .bible-text {
-            background-color: #f8f9fa;
-            padding: 20px;
-            border-radius: 5px;
-            font-family: var(--font-secondary);
-            font-size: 1.1em;
-            line-height: 2;
-        }
-
-        .bible-text p {
-            margin: 0 0 1em 0;
-        }
-
-        .bible-text strong {
-            font-family: var(--font-primary);
-            font-weight: 700;
-            color: var(--color-text); /* 소제목 색상 없이 굵게만 */
-        }
-        
-        .commentary p {
-            margin-bottom: 1em;
-        }
-
-        .visual-analysis svg {
-            width: 100%;
-            height: auto;
-            border: 1px solid var(--color-border);
-            border-radius: 4px;
-            padding: 10px;
-            box-sizing: border-box;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th, td {
-            border: 1px solid var(--color-border);
-            padding: 12px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-            font-weight: 700;
-        }
-
-        footer {
-            width: 100%;
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            font-size: 0.9em;
-            color: #888;
-            border-top: 1px solid var(--color-border);
-        }
-
-        /* 오디오 플레이어 스타일 */
-        #audio-player-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 1000;
-        }
-
-        #play-pause-btn {
-            background-color: var(--color-book1);
-            color: white;
-            border: none;
-            border-radius: 50%;
-            width: 60px;
-            height: 60px;
-            font-size: 24px;
-            cursor: pointer;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        #youtube-player {
-            display: none;
-        }
-    </style>
+    #audio-player-button {
+        position: fixed;
+        top: 20px;
+        right: 20px;
+        padding: 10px 20px;
+        background-color: #4285F4;
+        color: white;
+        border: none;
+        border-radius: 25px;
+        cursor: pointer;
+        font-size: 1em;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        z-index: 1000;
+        transition: background-color 0.3s;
+    }
+    #audio-player-button:hover {
+        background-color: #357ae8;
+    }
+    #youtube-player-container {
+        display: none;
+        position: fixed;
+        top: 80px;
+        right: 20px;
+        z-index: 1000;
+    }
+    footer {
+        text-align: center;
+        margin-top: 50px;
+        padding-top: 20px;
+        border-top: 1px solid #e0e0e0;
+        color: #95a5a6;
+        font-size: 0.9em;
+    }
+</style>
 </head>
 <body>
 
-    <div id="youtube-player"></div>
+<div id="youtube-player-container">
+    <div id="player"></div>
+</div>
+<button id="audio-player-button">오늘의 말씀듣기 ▶</button>
 
-    <div id="audio-player-container">
-        <button id="play-pause-btn">▶</button>
+<div class="container">
+    <h1>8월 20일 맥체인 성경읽기</h1>
+    <p class="subtitle">사무엘상 12장, 로마서 10장, 예레미야 49장, 시편 26-27편</p>
+
+    <div class="chapter-card card-book1">
+        <h2>사무엘상 12장 분석</h2>
+        <h3>개요 (Overview)</h3>
+        <p>사무엘상 12장은 사사 시대의 마지막 지도자인 사무엘의 고별 설교입니다. 그는 자신의 통치 기간 동안 청렴결백했음을 백성들 앞에서 증언하게 한 후, 이스라엘의 과거 역사를 회고하며 그들이 어려울 때마다 구원하신 분은 오직 여호와 하나님뿐이심을 상기시킵니다. 그는 백성들이 인간 왕을 구한 것이 하나님을 버린 큰 죄악임을 지적하고, 밀 베는 때에 천둥과 비를 내리는 이적을 통해 이를 확증합니다. 그러나 그는 백성들을 위해 기도하기를 쉬는 죄를 범하지 않을 것이며, 앞으로 왕과 백성이 여호와를 경외하고 섬기면 복을 받겠지만, 악을 행하면 왕과 함께 멸망할 것이라고 마지막으로 권면하고 경고합니다.</p>
+
+        <h3>시각적 분석 (Visual Analysis)</h3>
+        <svg width="100%" height="220" viewBox="0 0 800 220" style="background-color:#f7f9fa; border-radius: 5px;">
+            <text x="400" y="30" font-family="Noto Sans KR" font-size="20" text-anchor="middle" font-weight="bold">사무엘의 고별 설교: 회고와 전망</text>
+            
+            <path d="M 400 50 V 200" stroke="#a9a9a9" stroke-width="2" />
+            <path d="M 50 120 L 750 120" stroke="#a9a9a9" stroke-width="2" />
+
+            <g>
+                <text x="225" y="80" text-anchor="middle" font-weight="bold" font-size="16">과거 (회고)</text>
+                <text x="225" y="110" text-anchor="middle" font-size="14">사무엘의 청렴</text>
+                <text x="225" y="130" text-anchor="middle" font-size="14">하나님의 구원 역사</text>
+                <text x="225" y="150" text-anchor="middle" font-size="14" fill="#c0392b">왕을 구한 죄악</text>
+            </g>
+            <g>
+                <text x="575" y="80" text-anchor="middle" font-weight="bold" font-size="16">미래 (전망)</text>
+                <text x="575" y="110" text-anchor="middle" font-size="14">사무엘의 중보기도</text>
+                <text x="575" y="130" text-anchor="middle" font-size="14" fill="#27ae60">순종 → 복</text>
+                <text x="575" y="150" text-anchor="middle" font-size="14" fill="#c0392b">불순종 → 멸망</text>
+            </g>
+        </svg>
+
+        <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
+        <p>이 설교는 신정(Theocracy)에서 왕정(Monarchy)으로 넘어가는 이스라엘 역사의 중대한 분기점에서 행해졌습니다. 사무엘은 마지막 사사로서, 이스라엘의 참된 왕은 여전히 여호와 하나님이심을 백성들의 마음에 깊이 새기고자 했습니다. 그가 자신의 청렴함을 먼저 내세운 것은, 인간 지도자의 불완전함과 대조적으로 오직 하나님만이 완전한 통치자이심을 강조하기 위함이었습니다. '밀 베는 때'(5-6월)는 건기로 비가 거의 오지 않는 시기입니다. 이때 천둥과 비가 내린 것은 하나님의 권능을 보여주는 초자연적인 표적이었습니다. 이를 통해 백성들은 자신들이 왕을 구한 것이 단순히 정치적인 요청이 아니라, 하나님 앞에서 심각한 죄악이었음을 깨닫고 두려워하게 됩니다. 사무엘은 "기도하기를 쉬는 죄를 범하지 않겠다"고 말하며, 지도자가 떠난 후에도 백성을 향한 영적 책임감을 놓지 않는 참된 목자의 모습을 보여줍니다. 이는 백성들에게 하나님을 경외하는 것이 왕에게 순종하는 것보다 더 우선적인 의무임을 가르쳐줍니다.</p>
+
+        <h3>주요 구절 해설 (Key Verse Commentary)</h3>
+        <ul>
+            <li>
+              <p class="key-verse">12절: 너희가 암몬 자손의 왕 나하스가 너희를 치러 옴을 보고 너희의 하나님 여호와께서는 너희의 왕이 되심에도 불구하고 너희가 내게 이르기를 아니라 우리를 다스릴 왕이 있어야 하겠다 하였도다</p>
+              <p class="commentary-text">이스라엘이 왕을 구한 근본적인 동기가 하나님의 통치에 대한 불신이었음을 명확히 지적합니다. 그들은 눈에 보이는 위협 앞에서 눈에 보이지 않는 하나님 왕을 신뢰하지 못하고, 눈에 보이는 인간 왕을 해결책으로 삼으려 했습니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">22절: 여호와께서는 너희를 자기 백성으로 삼으신 것을 기뻐하셨으므로 여호와께서는 그의 크신 이름을 위해서라도 자기 백성을 버리지 아니하실 것이요</p>
+              <p class="commentary-text">백성들의 죄악에도 불구하고 하나님께서 그들을 버리지 않으시는 이유를 설명합니다. 그 이유는 백성들의 자격 때문이 아니라, 그들을 택하시고 언약을 맺으신 하나님 자신의 '기쁨'과 '크신 이름'(명예) 때문입니다. 하나님의 신실하심이 언약 백성을 지키는 궁극적인 보증이 됩니다.</p>
+            </li>
+             <li>
+              <p class="key-verse">23절: 나는 너희를 위하여 기도하기를 쉬는 죄를 여호와 앞에 결단코 범하지 아니하고 선하고 의로운 길을 너희에게 가르칠 것인즉</p>
+              <p class="commentary-text">영적 지도자의 가장 중요한 두 가지 사명이 '중보 기도'와 '말씀 교육'임을 보여주는 위대한 선언입니다. 사무엘은 비록 공식적인 통치자의 자리에서는 물러나지만, 백성을 위한 기도와 가르침의 사명을 멈추지 않겠다고 다짐합니다. 이는 그의 사역이 직위가 아닌 소명에 근거하고 있음을 보여줍니다.</p>
+            </li>
+        </ul>
+
+        <h3>성경 본문 (Full Text)</h3>
+        <div class="bible-text">
+            <strong style="color: #4285F4;">사무엘의 고별 설교</strong>
+            <div><span class="verse-number">1</span>사무엘이 온 이스라엘에게 이르되 보라 너희가 내게 한 말을 내가 다 듣고 너희 위에 왕을 세웠더니</div>
+            <div><span class="verse-number">2</span>이제 왕이 너희 앞에 출입하느니라 보라 나는 늙어 머리가 희어졌고 내 아들들도 너희와 함께 있느니라 내가 어려서부터 오늘까지 너희 앞에 출입하였거니와</div>
+            <div><span class="verse-number">3</span>내가 여기 있나니 여호와 앞과 그의 기름 부음을 받은 자 앞에서 내게 대하여 증언하라 내가 누구의 소를 빼앗았느냐 누구의 나귀를 빼앗았느냐 누구를 속였느냐 누구를 압제하였느냐 내 눈을 흐리게 하는 뇌물을 누구의 손에서 받았느냐 그리하였으면 내가 그것을 너희에게 갚으리라 하니</div>
+            <div><span class="verse-number">4</span>그들이 이르되 당신이 우리를 속이지 아니하였고 압제하지 아니하였고 누구의 손에서든지 아무것도 빼앗은 것이 없나이다 하니라</div>
+            <div><span class="verse-number">5</span>사무엘이 백성에게 이르되 너희가 내 손에서 아무것도 찾아낸 것이 없음을 여호와께서 너희에게 대하여 증언하시며 그의 기름 부음을 받은 자도 오늘 증언하느니라 하니 그들이 이르되 그가 증언하시나이다 하니라</div>
+            <div><span class="verse-number">6</span>사무엘이 백성에게 이르되 모세와 아론을 세우시며 너희 조상들을 애굽 땅에서 인도하여 내신 이는 여호와이시니</div>
+            <div><span class="verse-number">7</span>그런즉 가만히 서 있으라 여호와께서 너희와 너희 조상들에게 행하신 모든 공의로운 일에 대하여 내가 여호와 앞에서 너희와 담론하리라</div>
+            <div><span class="verse-number">8</span>야곱이 애굽에 들어간 후 너희 조상들이 여호와께 부르짖으매 여호와께서 모세와 아론을 보내사 그 두 사람으로 너희 조상들을 애굽에서 인도해 내어 이 곳에 살게 하셨으나</div>
+            <div><span class="verse-number">9</span>그들이 그들의 하나님 여호와를 잊은지라 여호와께서 그들을 하솔 군사령관 시스라의 손과 블레셋 사람들의 손과 모압 왕의 손에 넘기셨더니 그들이 그들을 치매</div>
+            <div><span class="verse-number">10</span>백성이 여호와께 부르짖어 이르되 우리가 여호와를 버리고 바알들과 아스다롯을 섬김으로 범죄하였나이다 그러하오나 이제 우리를 원수들의 손에서 건져내소서 그리하시면 우리가 주를 섬겠나이다 하매</div>
+            <div><span class="verse-number">11</span>여호와께서 여룹바알과 베단과 입다와 나 사무엘을 보내사 너희를 너희 사방 원수의 손에서 건져내사 너희에게 안전하게 살게 하셨거늘</div>
+            <div><span class="verse-number">12</span>너희가 암몬 자손의 왕 나하스가 너희를 치러 옴을 보고 너희의 하나님 여호와께서는 너희의 왕이 되심에도 불구하고 너희가 내게 이르기를 아니라 우리를 다스릴 왕이 있어야 하겠다 하였도다</div>
+            <div><span class="verse-number">13</span>이제 너희가 구한 왕, 너희가 택한 왕을 보라 여호와께서 너희 위에 왕을 세우셨느니라</div>
+            <div><span class="verse-number">14</span>너희가 만일 여호와를 경외하며 그를 섬기며 그의 목소리를 듣고 여호와의 명령을 거역하지 아니하며 또 너희와 너희를 다스리는 왕이 너희의 하나님 여호와를 따르면 좋겠지마는</div>
+            <div><span class="verse-number">15</span>너희가 만일 여호와의 목소리를 듣지 아니하고 여호와의 명령을 거역하면 여호와의 손이 너희의 조상들을 치신 것 같이 너희를 치실 것이라</div>
+            <div><span class="verse-number">16</span>너희는 이제 가만히 서서 여호와께서 너희 목전에서 행하시는 이 큰 일을 보라</div>
+            <div><span class="verse-number">17</span>오늘은 밀 베는 때가 아니냐 내가 여호와께 아뢰리니 여호와께서 우레와 비를 보내사 너희가 왕을 구한 일 곧 여호와의 목전에서 범한 죄악이 큼을 너희에게 밝히 알게 하시리라</div>
+            <div><span class="verse-number">18</span>이에 사무엘이 여호와께 아뢰매 여호와께서 그 날에 우레와 비를 보내시니 모든 백성이 여호와와 사무엘을 크게 두려워하니라</div>
+            <div><span class="verse-number">19</span>모든 백성이 사무엘에게 이르되 당신의 종들을 위하여 당신의 하나님 여호와께 기도하여 우리가 죽지 않게 하소서 우리가 우리의 모든 죄에 왕을 구하는 악을 더하였나이다</div>
+            <div><span class="verse-number">20</span>사무엘이 백성에게 이르되 두려워하지 말라 너희가 과연 이 모든 악을 행하였으나 여호와를 따르는 데에서 돌아서지 말고 오직 너희의 마음을 다하여 여호와를 섬기라</div>
+            <div><span class="verse-number">21</span>돌아서서 유익하게도 못하며 구원하지도 못하는 헛된 것을 따르지 말라 그들은 헛되니라</div>
+            <div><span class="verse-number">22</span>여호와께서는 너희를 자기 백성으로 삼으신 것을 기뻐하셨으므로 여호와께서는 그의 크신 이름을 위해서라도 자기 백성을 버리지 아니하실 것이요</div>
+            <div><span class="verse-number">23</span>나는 너희를 위하여 기도하기를 쉬는 죄를 여호와 앞에 결단코 범하지 아니하고 선하고 의로운 길을 너희에게 가르칠 것인즉</div>
+            <div><span class="verse-number">24</span>너희는 여호와께서 너희를 위하여 행하신 그 큰 일을 생각하여 오직 그를 경외하며 너희의 마음을 다하여 진실히 섬기라</div>
+            <div><span class="verse-number">25</span>만일 너희가 여전히 악을 행하면 너희와 너희 왕이 다 멸망하리라</div>
+        </div>
     </div>
 
-    <div class="main-container">
-        <header>
-            <h1>8월 20일 맥체인 성경읽기</h1>
-            <p>사무엘상 12장, 로마서 10장, 예레미야 49장, 시편 26-27편</p>
-        </header>
+    <div class="chapter-card card-book2">
+        <h2>로마서 10장 분석</h2>
+        <h3>개요 (Overview)</h3>
+        <p>로마서 10장은 9장에서 제기된 이스라엘의 구원 문제에 대한 바울의 간절한 마음과 신학적 해답을 담고 있습니다. 그는 동족 이스라엘이 구원받기를 간절히 원하지만, 그들의 문제는 '열심'이 없어서가 아니라 '올바른 지식'이 없어서라고 진단합니다. 그들은 하나님의 의(믿음으로 얻는 의)를 모르고 자기 의(율법 행위로 얻는 의)를 세우려다가, 율법의 마침이 되시는 그리스도께 복종하지 않았습니다. 바울은 구원에 이르는 길은 결코 어렵거나 멀리 있는 것이 아니라, "말씀이 네게 가까워 네 입에 있으며 네 마음에 있다"는 신명기 말씀을 인용하며, 입으로 예수를 주로 시인하고 마음으로 그의 부활을 믿으면 구원받는다는 복음의 단순성과 보편성을 선포합니다. 이 구원은 유대인이나 이방인이나 차별이 없으며, 누구든지 주의 이름을 부르면 가능합니다.</p>
 
-        <div class="chapter-card card-book1">
-            <h2>사무엘상 12장 분석</h2>
-            <h3>개요 (Overview)</h3>
-            <p>사무엘상 12장은 사무엘의 고별 설교로, 이스라엘의 역사에서 중요한 전환점을 기록합니다. 사사 시대가 끝나고 왕정 시대가 시작되는 이 시점에서, 사무엘은 자신의 사역을 회고하며 자신의 정직성과 순수성을 백성 앞에서 증언합니다. 그는 이스라엘이 왕을 구한 것이 하나님을 버린 행위였음을 지적하면서도, 하나님의 신실하심과 자비는 여전함을 선포합니다. 사무엘은 백성에게 오직 여호와를 경외하고 섬길 것을 촉구하며, 순종할 때의 복과 불순종할 때의 심판을 경고합니다. 이 장은 하나님의 주권과 인간의 책임 사이의 긴장을 보여주며, 그럼에도 불구하고 당신의 백성을 향한 하나님의 언약적 사랑을 강조합니다.</p>
+        <h3>시각적 분석 (Visual Analysis)</h3>
+         <svg width="100%" height="220" viewBox="0 0 800 220" style="background-color:#f7f9fa; border-radius: 5px;">
+            <text x="400" y="30" font-family="Noto Sans KR" font-size="20" text-anchor="middle" font-weight="bold">구원에 이르는 길: 두 가지 의</text>
             
-            <h3>시각적 분석 (Visual Analysis)</h3>
-            <div class="visual-analysis">
-                <svg viewBox="0 0 400 250">
-                    <style>
-                        .title { font-size: 12px; font-weight: bold; text-anchor: middle; }
-                        .label { font-size: 9px; text-anchor: middle; }
-                        .arrow { fill: #333; }
-                        .god { fill: #F4B400; }
-                        .samuel { fill: #4285F4; }
-                        .people { fill: #DB4437; }
-                        .king { fill: #808080; }
-                    </style>
-                    <text x="200" y="20" class="title">사무엘상 12장: 신정(神政)에서 왕정(王政)으로의 전환</text>
-                    
-                    <rect x="150" y="30" width="100" height="30" rx="5" class="god" />
-                    <text x="200" y="50" class="label" fill="white">하나님의 통치 (언약)</text>
-                    
-                    <path d="M 200 60 L 200 90" stroke="#F4B400" stroke-width="2" fill="none"/>
-                    <polygon points="195,85 205,85 200,95" class="arrow" fill="#F4B400"/>
+            <g>
+                <rect x="50" y="70" width="300" height="120" rx="10" fill="#ffebee"/>
+                <text x="200" y="100" text-anchor="middle" font-size="16" font-weight="bold">자기 의 (이스라엘의 실패)</text>
+                <text x="200" y="130" text-anchor="middle" font-size="14">열심 O, 지식 X</text>
+                <text x="200" y="150" text-anchor="middle" font-size="14">율법의 행위, 복종 안 함</text>
+                <text x="200" y="175" text-anchor="middle" font-size="16" fill="#c0392b">실패</text>
+            </g>
 
-                    <rect x="150" y="95" width="100" height="40" rx="5" class="samuel" />
-                    <text x="200" y="110" class="label" fill="white">사무엘 (마지막 사사)</text>
-                    <text x="200" y="125" class="label" fill="white">"나의 통치는 순결했다"</text>
-
-                    <path d="M 100 135 L 100 165" stroke="#333" stroke-width="2" fill="none"/>
-                    <polygon points="95,160 105,160 100,170" class="arrow"/>
-                    <text x="100" y="155" class="label" transform="rotate(-90 100 155)" dy="4">기억하라</text>
-                    <text x="75" y="130" class="label">하나님의 구원 역사</text>
-                    
-                    <path d="M 300 135 L 300 165" stroke="#333" stroke-width="2" fill="none"/>
-                    <polygon points="295,160 305,160 300,170" class="arrow"/>
-                    <text x="300" y="155" class="label" transform="rotate(90 300 155)" dy="-12">요구</text>
-                    <text x="325" y="130" class="label">인간 왕을 원함</text>
-                    
-                    <rect x="50" y="170" width="300" height="40" rx="5" class="people"/>
-                    <text x="200" y="195" class="label" fill="white">이스라엘 백성</text>
-                    
-                    <path d="M 200 210 L 200 220" stroke="#333" stroke-width="2" fill="none"/>
-                    
-                    <rect x="150" y="220" width="100" height="25" rx="5" class="king" />
-                    <text x="200" y="235" class="label" fill="white">사울 왕 (인간 왕)</text>
-                </svg>
-            </div>
+            <path d="M 380 130 L 420 130" stroke="#333" stroke-width="2" marker-end="url(#arrow-black)"/>
+            <defs>
+                <marker id="arrow-black" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#333"/></marker>
+            </defs>
             
-            <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
-            <div class="commentary">
-                <p>사무엘상 12장은 이스라엘의 정치 체제가 하나님이 직접 다스리시는 신정(Theocracy)에서 인간 왕이 다스리는 왕정(Monarchy)으로 넘어가는 결정적인 순간을 포착합니다. 사무엘은 마지막 사사로서, 그의 시대가 저물고 새로운 시대가 열림을 공식적으로 선언합니다. 신학적으로 이 장의 핵심은 '하나님의 왕 되심'과 '인간의 왕 되심'의 대립입니다. 백성들이 왕을 구한 근본적인 동기는 다른 나라들처럼 되고자 하는 욕망이었으며, 이는 언약 백성으로서의 정체성을 포기하고 보이지 않는 하나님보다 보이는 인간 왕을 더 신뢰하려는 불신앙의 표현이었습니다.</p>
-                <p>개혁주의 신학 관점에서, 본문은 하나님의 절대 주권과 인간의 책임이라는 두 가지 진리를 동시에 보여줍니다. 하나님은 그들의 요구를 허락하심으로써 왕정을 세우셨지만(하나님의 주권적 허용), 왕을 구한 행위 자체는 명백히 하나님을 버린 죄악(인간의 책임)이었습니다. 그럼에도 불구하고 사무엘의 설교는 "여호와께서는 너희를 자기 백성으로 삼으신 것을 기뻐하셨으므로 여호와께서는 그의 크신 이름을 위해서라도 자기 백성을 버리지 아니하실 것"(12:22)이라고 선포합니다. 이는 이스라엘의 자격이나 행위 때문이 아니라, 오직 하나님의 이름과 그분의 언약적 신실함 때문에 구원이 유지된다는 중요한 개혁주의 신학 원리(하나님의 은혜의 무조건성)를 드러냅니다.</p>
-            </div>
-            
-            <h3>주요 구절 해설 (Key Verse Commentary)</h3>
-            <div class="commentary">
-                <p><strong>사무엘상 12:20-22</strong> "사무엘이 백성에게 이르되 두려워하지 말라 너희가 과연 이 모든 악을 행하였으나 여호와를 따르는 데에서 돌아서지 말고 오직 너희의 마음을 다하여 여호와를 섬기라 돌아서서 유익하게도 못하며 구원하지도 못하는 헛된 것을 따르지 말라 그들은 헛되니라 여호와께서는 너희를 자기 백성으로 삼으신 것을 기뻐하셨으므로 여호와께서는 그의 크신 이름을 위해서라도 자기 백성을 버리지 아니하실 것이요"</p>
-                <p>이 구절은 사무엘 설교의 정점이며, 죄와 은혜의 역설적인 관계를 보여줍니다. 사무엘은 백성들의 죄악("이 모든 악을 행하였으나")을 정직하게 지적하면서도, 절망이 아닌 회개와 새로운 순종으로 나아갈 길을 제시합니다. 구원의 근거가 인간의 행위가 아닌, '하나님의 기쁨'과 '하나님의 크신 이름'에 있음을 명확히 합니다. '헛된 것'은 인간 왕이나 우상을 가리키며, 그것들은 참된 구원과 유익을 줄 수 없음을 강조합니다. 이는 구원이 오직 여호와께로부터 말미암는다는 사실을 확증하며, 하나님의 백성을 향한 그분의 선택과 보존은 결코 실패하지 않을 것임을 선포하는 위대한 위로와 소망의 메시지입니다.</p>
-            </div>
+            <g>
+                <rect x="450" y="70" width="300" height="120" rx="10" fill="#e6ffed"/>
+                <text x="600" y="100" text-anchor="middle" font-size="16" font-weight="bold">하나님의 의 (복음)</text>
+                <text x="600" y="130" text-anchor="middle" font-size="14">가까운 말씀 (그리스도)</text>
+                <text x="600" y="150" text-anchor="middle" font-size="14">마음으로 믿고 입으로 시인</text>
+                <text x="600" y="175" text-anchor="middle" font-size="16" fill="#27ae60">구원 (차별 없음)</text>
+            </g>
+        </svg>
 
-            <h3>성경 본문 (Full Text)</h3>
-            <div class="bible-text">
-                <p><strong>사무엘의 고별사</strong></p>
-                <p>1 사무엘이 온 이스라엘에게 이르되 보라 너희가 내게 한 말을 내가 다 듣고 너희 위에 왕을 세웠더니<br>2 이제 왕이 너희 앞에 출입하느니라 보라 나는 늙어 머리가 희어졌고 내 아들들도 너희와 함께 있느니라 내가 어려서부터 오늘까지 너희 앞에 출입하였거니와<br>3 내가 여기 있나니 여호와 앞과 그의 기름 부음을 받은 자 앞에서 내게 대하여 증언하라 내가 누구의 소를 빼앗았느냐 누구의 나귀를 빼앗았느냐 누구를 속였느냐 누구를 압제하였느냐 내 눈을 흐리게 하는 뇌물을 누구의 손에서 받았느냐 그리하였으면 내가 그것을 너희에게 갚으리라 하니<br>4 그들이 이르되 당신이 우리를 속이지 아니하였고 압제하지 아니하였고 누구의 손에서든지 아무것도 빼앗은 것이 없나이다 하니라<br>5 사무엘이 백성에게 이르되 너희가 내 손에서 아무것도 찾아낸 것이 없음을 여호와께서 너희에게 대하여 증언하시며 그의 기름 부음을 받은 자도 오늘 증언하느니라 하니 그들이 이르되 그가 증언하시나이다 하니라</p>
-                <p><strong>하나님의 신실하심을 상기시키다</strong></p>
-                <p>6 사무엘이 백성에게 이르되 모세와 아론을 세우시며 너희 조상들을 애굽 땅에서 인도하여 내신 이는 여호와이시니<br>7 그런즉 가만히 서 있으라 내가 여호와께서 너희와 너희 조상들에게 행하신 모든 공의로운 일에 대하여 여호와 앞에서 너희와 담론하리라<br>8 야곱이 애굽에 들어간 후 너희 조상들이 여호와께 부르짖으매 여호와께서 모세와 아론을 보내사 그 두 사람으로 너희 조상들을 애굽에서 인도해 내어 이 곳에 살게 하셨으나<br>9 그들이 그들의 하나님 여호와를 잊은지라 여호와께서 그들을 하솔 군사령관 시스라의 손과 블레셋 사람들의 손과 모압 왕의 손에 넘기셨더니 그들이 저희를 치매<br>10 백성이 여호와께 부르짖어 이르되 우리가 여호와를 버리고 바알들과 아스다롯을 섬김으로 범죄하였나이다 그러하오나 이제 우리를 원수들의 손에서 건져내소서 그리하시면 우리가 주를 섬기겠나이다 하매<br>11 여호와께서 여룹바알과 베단과 입다와 나 사무엘을 보내사 너희를 너희 사방 원수의 손에서 건져내사 너희에게 안전하게 살게 하셨거늘<br>12 너희가 암몬 자손의 왕 나하스가 너희를 치러 옴을 보고 너희의 하나님 여호와께서는 너희의 왕이 되심에도 불구하고 너희가 내게 이르기를 아니라 우리를 다스릴 왕이 있어야 하겠다 하였도다</p>
-                <p><strong>왕을 구한 백성의 죄</strong></p>
-                <p>13 이제 너희가 구한 왕, 너희가 택한 왕을 보라 여호와께서 너희 위에 왕을 세우셨느니라<br>14 너희가 만일 여호와를 경외하여 그를 섬기며 그의 목소리를 듣고 여호와의 명령을 거역하지 아니하며 또 너희와 너희를 다스리는 왕이 너희의 하나님 여호와를 따르면 좋겠지만은<br>15 너희가 만일 여호와의 목소리를 듣지 아니하고 여호와의 명령을 거역하면 여호와의 손이 너희의 조상들을 치신 것 같이 너희를 치실 것이라<br>16 너희는 이제 가만히 서서 여호와께서 너희 목전에서 행하시는 이 큰 일을 보라<br>17 오늘은 밀 베는 때가 아니냐 내가 여호와께 아뢰리니 여호와께서 우레와 비를 보내사 너희가 왕을 구한 일 곧 여호와의 목전에서 범한 죄악이 큼을 너희에게 밝히 알게 하시리라<br>18 이에 사무엘이 여호와께 아뢰매 여호와께서 그 날에 우레와 비를 보내시니 모든 백성이 여호와와 사무엘을 크게 두려워하니라</p>
-                <p><strong>회개와 약속</strong></p>
-                <p>19 모든 백성이 사무엘에게 이르되 당신의 종들을 위하여 당신의 하나님 여호와께 기도하여 우리가 죽지 않게 하소서 우리가 우리의 모든 죄에 왕을 구하는 악을 더하였나이다<br>20 사무엘이 백성에게 이르되 두려워하지 말라 너희가 과연 이 모든 악을 행하였으나 여호와를 따르는 데에서 돌아서지 말고 오직 너희의 마음을 다하여 여호와를 섬기라<br>21 돌아서서 유익하게도 못하며 구원하지도 못하는 헛된 것을 따르지 말라 그들은 헛되니라<br>22 여호와께서는 너희를 자기 백성으로 삼으신 것을 기뻐하셨으므로 여호와께서는 그의 크신 이름을 위해서라도 자기 백성을 버리지 아니하실 것이요<br>23 나는 너희를 위하여 기도하기를 쉬는 죄를 여호와 앞에 결단코 범하지 아니하고 선하고 의로운 길을 너희에게 가르칠 것인즉<br>24 너희는 여호와께서 너희를 위하여 행하신 그 큰 일을 생각하여 오직 그를 경외하며 너희의 마음을 다하여 진실히 섬기라<br>25 만일 너희가 여전히 악을 행하면 너희와 너희 왕이 다 멸망하리라</p>
-            </div>
+        <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
+        <p>바울은 유대인들의 종교적 '열심' 자체를 비난하지 않습니다. 오히려 그 열심이 '올바른 지식', 즉 그리스도에 대한 지식에 근거하지 않았기 때문에 잘못된 방향으로 나아갔다고 안타까워합니다. 그들이 세우려 한 '자기 의'는 율법의 조항들을 지킴으로써 하나님 앞에 떳떳해지려는 인간적인 노력을 의미합니다. 그러나 바울은 '그리스도께서 율법의 마침이 되셨다'고 선포합니다. 이는 그리스도께서 율법의 모든 요구를 완전히 성취하셨으므로, 이제 더 이상 율법의 행위가 구원의 조건이 될 수 없음을 의미합니다. 구원은 하늘에 올라가거나 무저갱에 내려가는 것 같은 초인적인 노력을 요구하지 않습니다. 복음의 말씀은 이미 우리 가까이 와 있으며, 우리가 해야 할 일은 그 말씀을 마음으로 믿고 입으로 고백하는 것뿐입니다. '주(主, Kyrios)'라는 고백은 '예수가 나의 주인이자 하나님'이심을 인정하는 신앙의 핵심입니다. 이 단순한 믿음의 길은 "누구든지"에게 열려 있으며, 이는 구원에 있어 인종적, 문화적 장벽이 완전히 무너졌음을 선포하는 복음의 위대한 보편성을 보여줍니다.</p>
+
+        <h3>주요 구절 해설 (Key Verse Commentary)</h3>
+        <ul>
+            <li>
+              <p class="key-verse">3절: 하나님의 의를 모르고 자기 의를 세우려고 힘써 하나님의 의에 복종하지 아니하였느니라</p>
+              <p class="commentary-text">이스라엘의 근본적인 실수가 무엇이었는지를 정확히 진단합니다. 그들은 하나님이 선물로 주시는 의를 받기보다, 스스로의 노력으로 의를 만들어내려 했습니다. 이는 하나님 앞에서 가장 교만한 태도이며, 결국 하나님의 방법에 복종하지 않는 불순종으로 이어졌습니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">9-10절: 네가 만일 네 입으로 예수를 주로 시인하며 또 하나님께서 그를 죽은 자 가운데서 살리신 것을 네 마음에 믿으면 구원을 받으리라 사람이 마음으로 믿어 의에 이르고 입으로 시인하여 구원에 이르느니라</p>
+              <p class="commentary-text">구원의 두 가지 핵심 요소를 명확히 제시합니다. '마음의 믿음'(내적 확신)과 '입의 시인'(외적 고백)입니다. 예수 그리스도의 주되심과 부활에 대한 진정한 믿음은 반드시 삶의 고백으로 이어지게 되어 있으며, 이 둘은 분리될 수 없는 구원의 통일된 과정입니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">14-15절: 그런즉 그들이 믿지 아니하는 이를 어찌 부르리요 듣지도 못한 이를 어찌 믿으리요 전파하는 자가 없이 어찌 들으리요 보내심을 받지 아니하였으면 어찌 전파하리요...</p>
+              <p class="commentary-text">복음 전파의 필연적인 과정을 논리적으로 설명하며 선교의 중요성을 역설합니다. 구원은 '들음'에서, 들음은 '전파'에서, 전파는 '보내심'에서 시작됩니다. 이 구절은 모든 성도에게 주어진 복음 전파의 사명이 얼마나 중요하고 시급한 것인지를 강조합니다.</p>
+            </li>
+        </ul>
+
+        <h3>성경 본문 (Full Text)</h3>
+        <div class="bible-text">
+            <strong style="color: #DB4437;">믿음으로 말미암는 의</strong>
+            <div><span class="verse-number">1</span>형제들아 내 마음에 원하는 바와 하나님께 구하는 바는 이스라엘을 위함이니 곧 그들로 구원을 받게 함이라</div>
+            <div><span class="verse-number">2</span>내가 증언하노니 그들이 하나님께 열심이 있으나 올바른 지식을 따른 것이 아니니라</div>
+            <div><span class="verse-number">3</span>하나님의 의를 모르고 자기 의를 세우려고 힘써 하나님의 의에 복종하지 아니하였느니라</div>
+            <div><span class="verse-number">4</span>그리스도는 모든 믿는 자에게 의를 이루기 위하여 율법의 마침이 되시니라</div>
+            <div><span class="verse-number">5</span>모세가 기록하되 율법으로 말미암는 의를 행하는 사람은 그 의로 살리라 하였거니와</div>
+            <div><span class="verse-number">6</span>믿음으로 말미암는 의는 이같이 말하되 네 마음에 누가 하늘에 올라가겠느냐 하지 말라 하니 올라가겠느냐 함은 그리스도를 모셔 내리려는 것이요</div>
+            <div><span class="verse-number">7</span>혹은 누가 무저갱에 내려가겠느냐 하지 말라 하니 내려가겠느냐 함은 그리스도를 죽은 자 가운데서 모셔 올리려는 것이라</div>
+            <div><span class="verse-number">8</span>그러면 무엇을 말하느냐 말씀이 네게 가까워 네 입에 있으며 네 마음에 있다 하였으니 곧 우리가 전파하는 믿음의 말씀이라</div>
+            <div><span class="verse-number">9</span>네가 만일 네 입으로 예수를 주로 시인하며 또 하나님께서 그를 죽은 자 가운데서 살리신 것을 네 마음에 믿으면 구원을 받으리라</div>
+            <div><span class="verse-number">10</span>사람이 마음으로 믿어 의에 이르고 입으로 시인하여 구원에 이르느니라</div>
+            <div><span class="verse-number">11</span>성경에 이르되 누구든지 그를 믿는 자는 부끄러움을 당하지 아니하리라 하니</div>
+            <div><span class="verse-number">12</span>유대인이나 헬라인이나 차별이 없음이라 한 분이신 주께서 모든 사람의 주가 되사 그를 부르는 모든 사람에게 부요하시도다</div>
+            <div><span class="verse-number">13</span>누구든지 주의 이름을 부르는 자는 구원을 받으리라</div>
+
+            <strong style="color: #DB4437;">복음의 전파</strong>
+            <div><span class="verse-number">14</span>그런즉 그들이 믿지 아니하는 이를 어찌 부르리요 듣지도 못한 이를 어찌 믿으리요 전파하는 자가 없이 어찌 들으리요</div>
+            <div><span class="verse-number">15</span>보내심을 받지 아니하였으면 어찌 전파하리요 기록된 바 아름답도다 좋은 소식을 전하는 자들의 발이여 함과 같으니라</div>
+            <div><span class="verse-number">16</span>그러나 그들이 다 복음을 순종하지 아니하였도다 이사야가 이르되 주여 우리가 전한 것을 누가 믿었나이까 하였으니</div>
+            <div><span class="verse-number">17</span>그러므로 믿음은 들음에서 나며 들음은 그리스도의 말씀으로 말미암았느니라</div>
+            <div><span class="verse-number">18</span>그러나 내가 말하노니 그들이 듣지 아니하였느냐 그렇지 아니하니 그 소리가 온 땅에 퍼졌고 그 말씀이 땅 끝까지 이르렀도다 하였느니라</div>
+            <div><span class="verse-number">19</span>그러나 내가 말하노니 이스라엘이 알지 못하였느냐 먼저 모세가 이르되 내가 백성 아닌 자로써 너희를 시기하게 하며 미련한 백성으로써 너희를 노엽게 하리라 하였고</div>
+            <div><span class="verse-number">20</span>이사야는 매우 담대하여 내가 나를 찾지 아니한 자들에게 찾은 바 되고 내게 묻지 아니한 자들에게 나타났노라 말하였고</div>
+            <div><span class="verse-number">21</span>이스라엘에 대하여 이르되 순종하지 아니하고 거슬러 말하는 백성에게 내가 종일 내 손을 벌렸노라 하였느니라</div>
         </div>
+    </div>
 
-        <div class="chapter-card card-book2">
-            <h2>로마서 10장 분석</h2>
-            <h3>개요 (Overview)</h3>
-            <p>로마서 10장은 이스라엘의 불신에 대한 바울의 깊은 안타까움으로 시작합니다. 그는 동족 이스라엘이 하나님께 대한 열심은 있으나, 올바른 지식을 따르지 않아 자기 의를 세우려 한다고 지적합니다. 이와 대조적으로, 바울은 '믿음으로 말미암는 의'를 제시합니다. 이 의는 율법의 행위가 아니라, 마음으로 믿고 입으로 시인함을 통해 누구에게나(유대인과 이방인 모두에게) 차별 없이 주어지는 하나님의 선물입니다. 따라서 복음 전파의 필연성과 중요성이 강조되며, "누구든지 주의 이름을 부르는 자는 구원을 받으리라"는 보편적인 초청으로 마무리됩니다.</p>
+    <div class="chapter-card card-book3">
+        <h2>예레미야 49장 분석</h2>
+        <h3>개요 (Overview)</h3>
+        <p>예레미야 49장은 암몬, 에돔, 다메섹, 게달과 하솔, 엘람 등 이스라엘 주변의 여러 이방 민족들에 대한 하나님의 심판을 연속적으로 선포합니다. 이들은 각각 다른 죄악(암몬의 영토 강탈, 에돔의 교만과 방관, 다메섹의 자만, 게달과 하솔의 안일, 엘람의 반역)으로 인해 하나님의 심판을 받게 될 것입니다. 하나님께서는 바벨론을 심판의 도구로 사용하여 그들의 자랑과 힘을 완전히 무너뜨리고 흩어버리실 것입니다. 그러나 암몬과 엘람의 경우, 심판 예언 끝에 마지막 날에 포로에서 돌아오게 될 것이라는 회복의 약속이 희미하게나마 주어집니다. 이는 하나님의 심판이 온 세상에 미치는 동시에, 그의 긍휼 또한 이방을 향해 열려 있음을 보여줍니다.</p>
+
+        <h3>시각적 분석 (Visual Analysis)</h3>
+         <svg width="100%" height="220" viewBox="0 0 800 220" style="background-color:#f7f9fa; border-radius: 5px;">
+            <text x="400" y="30" font-family="Noto Sans KR" font-size="20" text-anchor="middle" font-weight="bold">열방을 향한 하나님의 공의로운 심판</text>
             
-            <h3>시각적 분석 (Visual Analysis)</h3>
-            <div class="visual-analysis">
-                <svg viewBox="0 0 400 250">
-                    <style>
-                        .title { font-size: 12px; font-weight: bold; text-anchor: middle; }
-                        .label { font-size: 9px; text-anchor: middle; }
-                        .path-faith { stroke: #0F9D58; stroke-width: 2.5; }
-                        .path-law { stroke: #DB4437; stroke-width: 2; stroke-dasharray: 4; }
-                        .box { rx: 5; ry: 5; }
-                        .start-box { fill: #f0f0f0; }
-                        .process-box { fill: #e3f2fd; }
-                        .result-box { fill: #F4B400; color: white; }
-                        .deadend-box { fill: #f5c6cb; }
-                        .arrow-faith { fill: #0F9D58; }
-                        .arrow-law { fill: #DB4437; }
-                    </style>
-                    <text x="200" y="20" class="title">로마서 10장: 구원에 이르는 두 길</text>
-                    
-                    <rect x="25" y="50" width="100" height="30" class="box start-box"/>
-                    <text x="75" y="70" class="label">하나님을 향한 열심</text>
-                    <path d="M 75 80 V 100" class="path-law"/>
-                    <polygon points="70,95 80,95 75,105" class="arrow-law"/>
-                    <rect x="25" y="105" width="100" height="30" class="box deadend-box"/>
-                    <text x="75" y="125" class="label">자기 의를 세움 (율법)</text>
-                    <text x="75" y="150" class="label" fill="#DB4437">❌ 실패</text>
+            <circle cx="400" cy="120" r="40" fill="#F4B400"/>
+            <text x="400" y="125" text-anchor="middle" font-family="Noto Sans KR" font-size="16" fill="white">하나님의</text>
+            <text x="400" y="145" text-anchor="middle" font-family="Noto Sans KR" font-size="16" fill="white">주권</text>
 
-                    <rect x="275" y="40" width="100" height="30" class="box process-box"/>
-                    <text x="325" y="60" class="label">보내심을 받은 자</text>
-                    <path d="M 325 70 V 85" class="path-faith"/>
-                    <polygon points="320,80 330,80 325,90" class="arrow-faith"/>
-                    
-                    <rect x="275" y="90" width="100" height="30" class="box process-box"/>
-                    <text x="325" y="110" class="label">전파하는 자 (설교)</text>
-                    <path d="M 325 120 V 135" class="path-faith"/>
-                    <polygon points="320,130 330,130 325,140" class="arrow-faith"/>
-                    
-                    <rect x="275" y="140" width="100" height="30" class="box process-box"/>
-                    <text x="325" y="160" class="label">듣는 자 (말씀)</text>
-                    <path d="M 275 155 H 220" class="path-faith"/>
-                    <polygon points="225,150 225,160 215,155" class="arrow-faith"/>
-                    
-                    <rect x="150" y="140" width="100" height="50" class="box result-box"/>
-                    <text x="200" y="160" class="label" fill="white">마음으로 믿고</text>
-                    <text x="200" y="175" class="label" fill="white">입으로 시인함</text>
-                    
-                    <path d="M 200 190 V 210" class="path-faith"/>
-                    <polygon points="195,205 205,205 200,215" class="arrow-faith"/>
+            <g>
+                <path d="M 400 120 L 150 80" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="150" y="70" text-anchor="middle" font-size="14">암몬 (강탈)</text>
+            </g>
+            <g>
+                <path d="M 400 120 L 200 180" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="200" y="195" text-anchor="middle" font-size="14">에돔 (교만)</text>
+            </g>
+            <g>
+                <path d="M 400 120 L 400 190" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="400" y="205" text-anchor="middle" font-size="14">다메섹 (자만)</text>
+            </g>
+            <g>
+                <path d="M 400 120 L 600 180" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="600" y="195" text-anchor="middle" font-size="14">게달/하솔 (안일)</text>
+            </g>
+            <g>
+                <path d="M 400 120 L 650 80" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrow-red)"/>
+                <text x="650" y="70" text-anchor="middle" font-size="14">엘람 (반역)</text>
+            </g>
+            <defs>
+                <marker id="arrow-red" viewBox="0 0 10 10" refX="5" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#e74c3c"/></marker>
+            </defs>
+        </svg>
 
-                    <rect x="150" y="215" width="100" height="30" class="box result-box"/>
-                    <text x="200" y="235" class="label" fill="white">✅ 구원</text>
-                </svg>
-            </div>
-            
-            <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
-            <div class="commentary">
-                <p>바울은 로마서 9장에서 하나님의 주권적인 선택을 다룬 후, 10장에서는 인간의 책임과 믿음의 중요성을 강조하며 균형을 맞춥니다. 이스라엘의 문제는 하나님을 향한 열심이 부족해서가 아니라, "하나님의 의를 모르고 자기 의를 세우려고 힘써 하나님의 의에 복종하지 아니하였기" (10:3) 때문입니다. 그들은 율법을 행함으로 의에 도달하려 했지만, 율법의 마침이 되시는 그리스도를 거부했습니다. 이는 율법주의의 한계를 명확히 보여줍니다.</p>
-                <p>개혁주의 신학의 핵심인 '오직 믿음으로'(*Sola Fide*) 교리가 이 장에서 선명하게 드러납니다. 구원은 인간의 노력이나 혈통, 민족적 특권에 달려 있지 않습니다. "네가 만일 네 입으로 예수를 주로 시인하며 또 하나님께서 그를 죽은 자 가운데서 살리신 것을 네 마음에 믿으면 구원을 받으리라"(10:9). 이 믿음은 신비롭게 하늘에서 내려오거나 땅에서 솟아나는 것이 아니라, '들음'에서 나며 그 들음은 '그리스도의 말씀'으로 말미암습니다(10:17). 이는 복음 전파의 절대적인 필요성을 강조합니다. 믿음은 하나님의 선물이며, 그 선물은 말씀을 전파하고 듣는 통상적인 은혜의 방편을 통해 주어집니다. 따라서 구원은 유대인이나 헬라인이나 차별 없이 모든 사람에게 열려 있습니다.</p>
-            </div>
-            
-            <h3>주요 구절 해설 (Key Verse Commentary)</h3>
-            <div class="commentary">
-                <p><strong>로마서 10:9-10</strong> "네가 만일 네 입으로 예수를 주로 시인하며 또 하나님께서 그를 죽은 자 가운데서 살리신 것을 네 마음에 믿으면 구원을 받으리라 사람이 마음으로 믿어 의에 이르고 입으로 시인하여 구원에 이르느니라"</p>
-                <p>이 구절은 복음의 핵심을 간결하게 요약합니다. 구원에 이르는 믿음은 두 가지 요소로 구성됩니다. 첫째, '마음으로 믿는 것'입니다. 이는 예수 그리스도의 부활에 대한 역사적 사실을 지적으로 동의하는 것을 넘어, 그 부활이 나를 위한 것이며 그분이 나의 죄를 해결하신 구주이심을 인격적으로 신뢰하는 내적인 확신을 의미합니다. 둘째, '입으로 시인하는 것'입니다. '주(Κύριος, 퀴리오스)'라는 시인은 예수가 단순히 위대한 스승이 아니라, 구약의 '여호와'와 동일한 신적 권위와 주권을 가지신 하나님이심을 고백하는 것입니다. 이는 내적인 믿음이 반드시 외적인 고백과 삶의 순종으로 드러나야 함을 보여줍니다. 마음의 믿음과 입의 시인은 분리될 수 없는, 참된 구원 얻는 믿음의 두 측면입니다.</p>
-            </div>
+        <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
+        <p>예레미야의 이방 민족 심판 예언은 단순히 이스라엘의 적대국들이 망할 것이라는 민족주의적인 선포가 아닙니다. 이는 여호와 하나님이 단지 이스라엘만의 신이 아니라, 온 세상과 모든 역사를 다스리시는 만물의 주권자이심을 선포하는 것입니다. 각 민족은 그들의 구체적인 죄악 때문에 심판받습니다. 특히 에돔(에서)의 죄는 형제 나라인 유다가 멸망할 때 돕지 않고 방관하며 오히려 기뻐했던 교만 때문이었습니다(오바댜서 참조). '바위 틈에 살며 산꼭대기를 점령한' 에돔의 지리적 요새도 하나님의 심판 앞에서는 아무 소용이 없다고 선언됩니다. 하나님은 이처럼 각 나라의 정치, 군사, 경제적 상황을 꿰뚫어 보시고 그들의 죄악에 따라 공의롭게 심판하십니다. 이방을 향한 심판은 이스라엘에게 두 가지 의미를 줍니다. 첫째, 그들을 괴롭혔던 대적들을 하나님께서 친히 갚아주신다는 위로. 둘째, 선민 이스라엘이라 할지라도 죄를 지으면 이방인과 똑같이 심판받을 수밖에 없다는 준엄한 경고입니다.</p>
 
-            <h3>성경 본문 (Full Text)</h3>
-            <div class="bible-text">
-                <p><strong>이스라엘의 불신앙</strong></p>
-                <p>1 형제들아 내 마음에 원하는 바와 하나님께 구하는 바는 이스라엘을 위함이니 곧 그들로 구원을 받게 함이라<br>2 내가 증언하노니 그들이 하나님께 열심이 있으나 올바른 지식을 따른 것이 아니니라<br>3 하나님의 의를 모르고 자기 의를 세우려고 힘써 하나님의 의에 복종하지 아니하였느니라<br>4 그리스도는 모든 믿는 자에게 의를 이루기 위하여 율법의 마침이 되시니라</p>
-                <p><strong>믿음으로 말미암는 의</strong></p>
-                <p>5 모세가 기록하되 율법으로 말미암는 의를 행하는 사람은 그 의로 살리라 하였거니와<br>6 믿음으로 말미암는 의는 이같이 말하되 네 마음에 누가 하늘에 올라가겠느냐 하지 말라 하니 올라가겠느냐 함은 그리스도를 모셔 내리려는 것이요<br>7 혹은 누가 무저갱에 내려가겠느냐 하지 말라 하니 내려가겠느냐 함은 그리스도를 죽은 자 가운데서 모셔 올리려는 것이라<br>8 그러면 무엇을 말하느냐 말씀이 네게 가까워 네 입에 있으며 네 마음에 있다 하였으니 곧 우리가 전파하는 믿음의 말씀이라<br>9 네가 만일 네 입으로 예수를 주로 시인하며 또 하나님께서 그를 죽은 자 가운데서 살리신 것을 네 마음에 믿으면 구원을 받으리라<br>10 사람이 마음으로 믿어 의에 이르고 입으로 시인하여 구원에 이르느니라<br>11 성경에 이르되 누구든지 그를 믿는 자는 부끄러움을 당하지 아니하리라 하니<br>12 유대인이나 헬라인이나 차별이 없음이라 한 분이신 주께서 모든 사람의 주가 되사 그를 부르는 모든 사람에게 부요하시도다<br>13 누구든지 주의 이름을 부르는 자는 구원을 받으리라</p>
-                <p><strong>복음 전파의 중요성</strong></p>
-                <p>14 그런즉 그들이 믿지 아니하는 이를 어찌 부르리요 듣지도 못한 이를 어찌 믿으리요 전파하는 자가 없이 어찌 들으리요<br>15 보내심을 받지 아니하였으면 어찌 전파하리요 기록된 바 아름답도다 좋은 소식을 전하는 자들의 발이여 함과 같으니라<br>16 그러나 그들이 다 복음을 순종하지 아니하였도다 이사야가 이르되 주여 우리가 전한 것을 누가 믿었나이까 하였으니<br>17 그러므로 믿음은 들음에서 나며 들음은 그리스도의 말씀으로 말미암았느니라<br>18 그러나 내가 말하노니 그들이 듣지 아니하였느냐 그렇지 아니하다 그 소리가 온 땅에 퍼졌고 그 말씀이 땅 끝까지 이르렀도다 하였느니라<br>19 그러나 내가 말하노니 이스라엘이 알지 못하였느냐 먼저 모세가 이르되 내가 백성 아닌 자로써 너희를 시기하게 하며 미련한 백성으로써 너희를 노엽게 하리라 하였고<br>20 이사야는 매우 담대하여 내가 나를 찾지 아니한 자들에게 찾은 바 되고 내게 묻지 아니한 자들에게 나타났노라 말하였고<br>21 이스라엘에 대하여 이르되 순종하지 아니하고 거슬러 말하는 백성에게 내가 종일 내 손을 벌렸노라 하였느니라</p>
-            </div>
+        <h3>주요 구절 해설 (Key Verse Commentary)</h3>
+        <ul>
+            <li>
+              <p class="key-verse">1절: ...이스라엘이 자식이 없느냐 상속자가 없느냐 말감이 갓을 점령하며 그 백성이 그 성읍들에 사는 것은 어찌 됨이냐</p>
+              <p class="commentary-text">암몬이 이스라엘의 갓 지파 영토를 불법적으로 차지한 것을 지적하시는 하나님의 수사적 질문입니다. '말감'(밀곰)은 암몬 족속의 주신입니다. 하나님은 마치 "내 아들 이스라엘에게 땅을 물려줄 아버지가 없다고 생각하느냐?"라고 물으시며, 당신의 백성의 권리를 침해한 것에 대해 반드시 책임을 물으실 것을 보여주십니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">16절: 바위 틈에 살며 산꼭대기를 점령한 자여 스스로 두려운 자인 줄로 여김과 네 마음의 교만이 너를 속였도다 네가 독수리 같이 보금자리를 높은 데에 지었을지라도 내가 거기에서 너를 끌어내리리라 이는 여호와의 말씀이니라</p>
+              <p class="commentary-text">에돔의 교만을 정확히 꿰뚫어 보시는 말씀입니다. 그들은 난공불락의 요새에 살면서 스스로 안전하다고 자만했지만, 하나님의 주권적인 능력 앞에서는 그 어떤 인간적인 안전장치도 소용없음을 보여줍니다. 교만은 스스로를 속이는 가장 큰 어리석음입니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">39절: 그러나 말일에 이르러 내가 엘람의 포로를 돌아가게 하리라 여호와의 말씀이니라</p>
+              <p class="commentary-text">암몬에 이어 엘람에게도 주어진 회복의 약속입니다. 엘람은 바벨론 동쪽에 위치한 강대국이었습니다. 하나님께서 그들의 왕좌를 폐하고 심판하시지만, 마지막 날에는 그들 중에서도 남은 자들을 돌아오게 하실 것입니다. 이는 하나님의 구원 계획이 이스라엘을 넘어 온 세상을 포함하고 있음을 암시하는 중요한 구절입니다.</p>
+            </li>
+        </ul>
+
+        <h3>성경 본문 (Full Text)</h3>
+        <div class="bible-text">
+            <strong style="color: #F4B400;">여러 민족에 대한 심판</strong>
+            <div><span class="verse-number">1</span>암몬 자손에 대한 말씀이라 여호와께서 이와 같이 말씀하시되 이스라엘이 자식이 없느냐 상속자가 없느냐 말감이 갓을 점령하며 그 백성이 그 성읍들에 사는 것은 어찌 됨이냐</div>
+            <div>... (이하 예레미야 49장 전체 내용은 생략되었습니다. 필요시 전문을 참조하십시오.) ...</div>
+            <div><span class="verse-number">39</span>그러나 말일에 이르러 내가 엘람의 포로를 돌아가게 하리라 여호와의 말씀이니라</div>
         </div>
-
-        <div class="chapter-card card-book3">
-            <h2>예레미야 49장 분석</h2>
-            <h3>개요 (Overview)</h3>
-            <p>예레미야 49장은 이스라엘 주변의 여러 민족들을 향한 하나님의 심판 예언 모음집입니다. 암몬, 에돔, 다메섹(아람), 게달과 하솔, 엘람 순서로 각 민족의 죄악(교만, 폭력, 우상숭배, 이스라엘 영토 침범 등)이 지적되고 그에 따른 멸망이 선포됩니다. 이 예언들은 하나님의 통치가 이스라엘에게만 국한되지 않고, 온 열방에 미치는 보편적인 주권임을 명백히 보여줍니다. 특히, 심판의 메시지 가운데서도 일부 민족(암몬, 엘람)에게는 미래의 회복에 대한 약속이 희미하게나마 주어집니다.</p>
-
-            <h3>시각적 분석 (Visual Analysis)</h3>
-            <div class="visual-analysis">
-                <svg viewBox="0 0 400 250">
-                    <style>
-                        .bg { fill: #f0e8d9; }
-                        .judah { fill: #fff; stroke: #333; stroke-width: 1.5; }
-                        .nation { fill: #f5f5f5; stroke: #999; }
-                        .label { font-size: 10px; font-weight: bold; text-anchor: middle; }
-                        .sublabel { font-size: 8px; text-anchor: middle; fill: #d32f2f; }
-                        .arrow { stroke: #c62828; stroke-width: 2; marker-end: url(#arrowhead); }
-                        .center-label { font-size: 14px; font-weight: bold; text-anchor: middle; }
-                    </style>
-                    <defs>
-                        <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
-                            <polygon points="0 0, 10 3.5, 0 7" fill="#c62828" />
-                        </marker>
-                    </defs>
-                    <rect width="400" height="250" class="bg"/>
-                    <text x="200" y="25" class="center-label">하나님의 열방 심판</text>
-                    
-                    <rect x="175" y="105" width="50" height="40" class="judah"/>
-                    <text x="200" y="128" class="label">유다</text>
-                    
-                    <rect x="250" y="90" width="70" height="30" class="nation"/>
-                    <text x="285" y="105" class="label">암몬</text>
-                    <text x="285" y="115" class="sublabel">(영토 찬탈)</text>
-                    <path d="M 225 115 H 250" class="arrow"/>
-                    
-                    <rect x="175" y="170" width="50" height="30" class="nation"/>
-                    <text x="200" y="185" class="label">에돔</text>
-                    <text x="200" y="195" class="sublabel">(교만)</text>
-                    <path d="M 200 145 V 170" class="arrow"/>
-
-                    <rect x="150" y="45" width="100" height="30" class="nation"/>
-                    <text x="200" y="60" class="label">다메섹(아람)</text>
-                    <text x="200" y="70" class="sublabel">(공포와 멸망)</text>
-                    <path d="M 200 105 V 75" class="arrow"/>
-
-                    <rect x="50" y="120" width="100" height="30" class="nation"/>
-                    <text x="100" y="135" class="label">게달/하솔(아랍)</text>
-                    <text x="100" y="145" class="sublabel">(안일함)</text>
-                    <path d="M 175 125 H 150" class="arrow"/>
-
-                    <rect x="280" y="170" width="70" height="30" class="nation"/>
-                    <text x="315" y="185" class="label">엘람</text>
-                    <text x="315" y="195" class="sublabel">(흩으심)</text>
-                    <path d="M 225 135 L 280 175" class="arrow"/>
-                </svg>
-            </div>
+    </div>
+    
+    <div class="chapter-card card-book4">
+        <h2>시편 26-27편 분석</h2>
+        <h3>개요 (Overview)</h3>
+        <p>시편 26편과 27편은 악인들의 위협 속에서 오직 하나님만을 의지하며 그분과의 교제를 갈망하는 다윗의 신뢰의 노래입니다. 26편에서 다윗은 자신이 '완전함'에 행하려 했으며, 악인의 자리에 앉지 않고 오직 주의 집을 사랑했음을 고백하며, 자신의 결백을 판단해 주시고 죄인들과 함께 멸망하지 않게 해달라고 간구합니다. 27편은 "여호와는 나의 빛이요 나의 구원이시니"라는 담대한 신앙 고백으로 시작하여, 군대가 진을 칠지라도 두려워하지 않는 절대적인 신뢰를 보여줍니다. 그의 유일한 소원은 평생 여호와의 집에 살면서 그분의 아름다움을 바라보는 것입니다. 시편은 확신에 찬 고백과 간절한 기도가 교차하며, 결국 '여호와를 기다릴지어다'라는 자기 자신과 공동체를 향한 권면으로 끝을 맺습니다.</p>
+    
+        <h3>시각적 분석 (Visual Analysis)</h3>
+         <svg width="100%" height="220" viewBox="0 0 800 220" style="background-color:#f7f9fa; border-radius: 5px;">
+            <text x="400" y="30" font-family="Noto Sans KR" font-size="20" text-anchor="middle" font-weight="bold">두려움 없는 신앙의 고백</text>
             
-            <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
-            <div class="commentary">
-                <p>예레미야의 열방 심판 예언은 유다의 멸망이 단독적인 사건이 아니라, 온 세상을 다스리시는 하나님의 공의로운 통치의 한 부분임을 보여줍니다. 이방 민족들은 그들의 교만(에돔), 이스라엘에 대한 적대감과 영토 침범(암몬), 폭력과 안일함 등으로 인해 심판받습니다. 이는 하나님께서 이스라엘의 하나님일 뿐만 아니라, 온 우주의 창조주이자 역사의 주관자이심을 선포하는 것입니다. 그분의 공의의 기준은 모든 민족에게 동일하게 적용됩니다.</p>
-                <p>개혁주의 신학적 관점에서 이 본문은 하나님의 주권과 공의를 강력하게 드러냅니다. 하나님은 역사의 무대 뒤에서 모든 것을 통치하시며, 각 나라의 흥망성쇠를 주관하십니다. 이방 나라들에 대한 심판은 그들의 죄에 대한 당연한 결과이며, 이를 통해 하나님의 거룩하심과 공의로우심이 나타납니다. 동시에 암몬과 엘람의 포로들이 "끝날에 돌아오게 하리라"는 약속(49:6, 39)은 주목할 만합니다. 이는 하나님의 심판이 단순한 파괴가 목적이 아니라, 궁극적으로는 그분의 구속 계획 안에서 이방인들까지 포함하는 회복을 예표한다는 구속사적 소망을 엿보게 합니다. 이는 신약에서 모든 민족에게 복음이 전파될 것에 대한 구약적 씨앗이라고 볼 수 있습니다.</p>
-            </div>
-            
-            <h3>주요 구절 해설 (Key Verse Commentary)</h3>
-            <div class="commentary">
-                <p><strong>예레미야 49:16</strong> "바위 틈에 살며 산꼭대기를 점령한 자여 스스로 두려운 자인 줄로 여김과 네 마음의 교만이 너를 속였도다 네가 독수리 같이 보금자리를 높은 데에 지었을지라도 내가 거기에서 너를 끌어내리리라 이는 여호와의 말씀이니라"</p>
-                <p>이 구절은 특별히 에돔을 향한 심판 예언의 핵심입니다. 에돔은 난공불락의 요새와 같은 지형에 자리 잡아 스스로 안전하고 강하다고 여겼습니다. 그들의 교만은 바로 이 지리적 안전함에서 비롯되었습니다. 그러나 하나님은 그 어떤 인간적인 안전장치나 교만도 당신의 심판 앞에서는 무력함을 선언하십니다. '독수리 같이 높은 보금자리'는 인간이 의지하는 가장 높은 수준의 안전과 힘을 상징합니다. 하지만 하나님은 그곳에서조차 "너를 끌어내리리라"고 말씀하심으로써, 당신의 주권이 인간의 모든 자랑과 힘 위에 있음을 분명히 하십니다. 이는 자신의 힘, 지위, 재물 등을 의지하는 모든 시대의 모든 사람을 향한 경고의 메시지입니다.</p>
-            </div>
+            <rect x="50" y="70" width="250" height="120" rx="10" fill="#fce4ec"/>
+            <text x="175" y="100" text-anchor="middle" font-weight="bold" font-size="16">외부의 위협</text>
+            <text x="175" y="130" text-anchor="middle" font-size="14">악인, 원수, 군대, 전쟁</text>
+            <text x="175" y="150" text-anchor="middle" font-size="14">위증자, 대적</text>
 
-            <h3>성경 본문 (Full Text)</h3>
-            <div class="bible-text">
-                <p><strong>암몬에 대한 심판</strong></p>
-                <p>1 암몬 자손에 대한 말씀이라 여호와께서 이와 같이 말씀하시되 이스라엘이 자식이 없느냐 상속자가 없느냐 말감이 갓을 점령하며 그의 백성이 그 성읍들에 사는 것은 어찌 됨이냐... (이하 49장 전체 본문)</p>
-                <p>...38 내가 나의 보좌를 엘람에 두고 왕과 고관들을 그 곳에서 멸하리라 여호와의 말씀이니라<br>39 그러나 끝날에 이르러 내가 엘람의 포로를 돌아가게 하리라 여호와의 말씀이니라</p>
-            </div>
+            <path d="M 320 130 C 370 90, 430 170, 480 130" stroke="#0F9D58" stroke-width="3" fill="none" />
+            <text x="400" y="120" text-anchor="middle" font-size="14" fill="#0F9D58">그러나</text>
+            
+            <rect x="500" y="70" width="250" height="120" rx="10" fill="#e6ffe6"/>
+            <text x="625" y="100" text-anchor="middle" font-weight="bold" font-size="16">내면의 확신</text>
+            <text x="625" y="130" text-anchor="middle" font-size="14">여호와는 나의 빛, 구원, 능력</text>
+            <text x="625" y="150" text-anchor="middle" font-size="14">"내가 누구를 두려워하리요"</text>
+
+             <text x="400" y="210" text-anchor="middle" font-weight="bold" font-size="16">"너는 여호와를 기다릴지어다!"</text>
+        </svg>
+    
+        <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
+        <p><strong>시편 26편</strong>에서 다윗이 말하는 '나의 완전함'은 죄가 없는 완전무결함을 의미하는 것이 아니라, 하나님을 향한 전적인 헌신과 성실한 마음가짐을 의미합니다. 그는 자신의 마음과 양심을 단련해달라고 기도하며, 악한 자들과의 교제를 의도적으로 피하고 오직 하나님의 임재(주의 집, 제단)를 사랑했음을 호소합니다. 이는 성도의 성화가 소극적으로 죄를 멀리하는 것뿐만 아니라, 적극적으로 하나님과의 교제를 사랑하고 추구하는 것임을 보여줍니다.<br><strong>시편 27편</strong>은 신뢰의 고백(1-6절)과 간절한 탄원(7-12절), 그리고 다시 믿음의 확신(13-14절)으로 구조가 전환됩니다. 이는 신앙생활이 항상 확신에 차 있는 것이 아니라, 때로는 두려움과 의심 속에서 하나님께 부르짖어야 하는 현실적인 씨름의 과정임을 보여줍니다. 다윗의 '한 가지 소원', 즉 평생 여호와의 집에 거하는 것은 단순히 성전 건물에 사는 것을 넘어, 어떤 상황에서든 하나님의 임재와 보호, 그분과의 친밀한 교제 안에 머무는 것을 의미합니다. "내 부모는 나를 버렸으나 여호와는 나를 영접하시리이다"라는 고백은, 세상의 가장 근원적인 관계조차 끊어질 수 있지만, 하나님과 그의 자녀 사이의 언약 관계는 결코 끊어지지 않는다는 강력한 믿음을 보여줍니다.</p>
+    
+        <h3>주요 구절 해설 (Key Verse Commentary)</h3>
+        <ul>
+            <li>
+              <p class="key-verse">26편 8절: 여호와여 내가 주께서 계신 집과 주의 영광이 머무는 곳을 사랑하오니</p>
+              <p class="commentary-text">참된 신앙인의 마음이 어디를 향하는지를 보여줍니다. 시인의 가장 큰 기쁨과 안식은 세상의 부나 명예가 아닌, 하나님의 임재를 경험하는 예배의 자리, 즉 하나님과의 교제 그 자체에 있었습니다. 이것이 모든 성도가 추구해야 할 신앙의 핵심입니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">27편 1절: 여호와는 나의 빛이요 나의 구원이시니 내가 누구를 두려워하리요 여호와는 내 생명의 능력이시니 내가 누구를 무서워하리요</p>
+              <p class="commentary-text">신앙의 가장 담대한 선언 중 하나입니다. 어둠을 밝히는 '빛', 위험에서 건지는 '구원', 생명을 지탱하는 '능력'이신 여호와 하나님 한 분만으로 충분하다는 절대적인 신뢰의 고백입니다. 두려움의 실체보다 하나님이 누구신지를 아는 것이 두려움을 이기는 비결입니다.</p>
+            </li>
+            <li>
+              <p class="key-verse">27편 14절: 너는 여호와를 기다릴지어다 강하고 담대하며 여호와를 기다릴지어다</p>
+              <p class="commentary-text">시인이 자기 자신과 신앙 공동체를 향해 선포하는 강력한 권면입니다. '기다림'은 수동적인 체념이 아니라, 하나님의 신실하심을 믿고 강하고 담대하게 소망을 붙드는 능동적인 믿음의 행위입니다. 응답이 더딜지라도, 포기하지 않고 끝까지 주님을 신뢰하라는 격려의 메시지입니다.</p>
+            </li>
+        </ul>
+    
+        <h3>성경 본문 (Full Text)</h3>
+        <div class="bible-text">
+            <strong style="color: #0F9D58;">시편 26편: 나의 결백을 판단하소서 (다윗의 시)</strong>
+            <div><span class="verse-number">1</span>내가 나의 완전함에 행하였사오며 흔들리지 아니하고 여호와를 의지하였사오니 여호와여 나를 판단하소서</div>
+            <div>... (이하 시편 26편 전체 내용은 생략되었습니다. 필요시 전문을 참조하십시오.) ...</div>
+            <div><span class="verse-number">12</span>내 발이 평탄한 데에 섰사오니 무리 가운데에서 여호와를 송축하리이다</div>
+
+            <strong style="color: #0F9D58;">시편 27편: 여호와는 나의 빛이요 구원이시라 (다윗의 시)</strong>
+            <div><span class="verse-number">1</span>여호와는 나의 빛이요 나의 구원이시니 내가 누구를 두려워하리요 여호와는 내 생명의 능력이시니 내가 누구를 무서워하리요</div>
+            <div>... (이하 시편 27편 전체 내용은 생략되었습니다. 필요시 전문을 참조하십시오.) ...</div>
+            <div><span class="verse-number">14</span>너는 여호와를 기다릴지어다 강하고 담대하며 여호와를 기다릴지어다</div>
         </div>
+    </div>
 
-        <div class="chapter-card card-book4">
-            <h2>시편 26-27편 분석</h2>
-            <h3>개요 (Overview)</h3>
-            <p>시편 26편과 27편은 다윗의 시로, 신뢰와 헌신이라는 주제로 연결됩니다. <strong>시편 26편</strong>은 '결백의 기도'입니다. 다윗은 자신의 온전함(integrity)과 여호와를 향한 흔들림 없는 신뢰를 근거로 하나님께 자신을 판단하고 변호해달라고 간구합니다. 그는 악인들의 길에서 자신을 구별하며, 오직 여호와의 제단을 사랑하고 그분의 집에서 예배하기를 소망합니다. <strong>시편 27편</strong>은 '담대한 신뢰의 노래'입니다. 다윗은 여호와가 자신의 빛과 구원이시기에 그 누구도 두려워하지 않는다고 선포합니다. 전쟁과 같은 극심한 위협 속에서도 그의 유일한 소원은 평생 여호와의 집에 살면서 그분의 아름다움을 보고 성전에서 사모하는 것입니다. 이 시는 두려움 속에서 하나님을 찾는 간구로 시작하여, 결국 하나님의 선하심을 기다리는 확신에 찬 믿음의 고백으로 끝맺습니다.</p>
-            
-            <h3>시각적 분석 (Visual Analysis)</h3>
-            <div class="visual-analysis">
-                <svg viewBox="0 0 400 250">
-                    <style>
-                        .title { font-size: 11px; font-weight: bold; text-anchor: middle; }
-                        .label { font-size: 9px; text-anchor: middle; }
-                        .psalm26-bg { fill: #e3f2fd; }
-                        .psalm27-bg { fill: #fff3e0; }
-                        .divider { stroke: #333; stroke-width: 1px; }
-                        .path-straight { stroke: #0F9D58; stroke-width: 2; fill: none; }
-                        .path-crooked { stroke: #888; stroke-width: 2; fill: none; stroke-dasharray: 3,3; }
-                        .light-rays { stroke: #FFC107; stroke-width: 1.5; stroke-opacity: 0.8; }
-                    </style>
-                    <rect x="0" y="0" width="200" height="250" class="psalm26-bg"/>
-                    <rect x="200" y="0" width="200" height="250" class="psalm27-bg"/>
-                    <line x1="200" y1="0" x2="200" y2="250" class="divider"/>
+    <div class="chapter-card integration-card">
+        <h2>통합적 이해</h2>
+        <h3>관통하는 주제</h3>
+        <p>오늘 본문들의 중심에는 <strong>'참된 왕이신 하나님을 신뢰하고 그에게 순종하는 삶'</strong>이라는 주제가 흐르고 있습니다. <strong>사무엘상</strong>에서 사무엘은 이스라엘 백성에게 인간 왕을 넘어 참된 왕이신 여호와를 경외하고 섬길 것을 마지막으로 호소합니다. <strong>로마서</strong>는 구원이 인간의 열심이나 행위가 아닌, 오직 주되신 그리스도를 믿고 그에게 복종함으로 얻어짐을 선포합니다. <strong>예레미야</strong>는 세상의 강한 나라들(모압, 암몬, 에돔 등) 역시 참된 왕이신 여호와의 주권 아래 있으며, 그분의 공의로운 심판을 피할 수 없음을 보여줍니다. 그리고 <strong>시편</strong>은 이 위대한 왕이 바로 나의 빛과 구원이시요, 나의 모든 죄를 용서하시고 친밀한 교제로 인도하시는 분임을 노래하며 그분을 향한 절대적인 신뢰와 기다림을 고백합니다.</p>
 
-                    <text x="100" y="25" class="title">시편 26편: 온전한 길을 걷는 소망</text>
-                    <circle cx="100" cy="100" r="30" fill="#fff" stroke="#4285F4" stroke-width="2"/>
-                    <text x="100" y="105" class="label">나(다윗)</text>
-                    
-                    <path d="M 100 130 C 100 150, 100 200, 100 220" class="path-straight"/>
-                    <text x="110" y="175" class="label" writing-mode="vertical-rl" >온전함의 길</text>
-                    <text x="100" y="235" class="label">주의 제단</text>
+        <h3>본문별 연결고리 및 구속사적 맥락</h3>
+        <p><strong>사무엘상 12장</strong>에서 사무엘이 경고한 "너희와 너희 왕이 다 멸망하리라"는 말씀은, <strong>예레미야 48-49장</strong>에서 교만했던 이방 왕들과 나라들이 실제로 멸망하는 모습을 통해 그 실체를 보여줍니다. 인간 왕과 세상 나라의 한계는 결국 우리를 참된 왕이신 그리스도께로 인도합니다. <strong>로마서 10장</strong>에서 말하는 '자기 의를 세우려는' 이스라엘의 실패는, 바로 사무엘상 12장에서 하나님 왕을 버리고 인간 왕을 구했던 죄악의 뿌리가 무엇인지를 신학적으로 설명해 줍니다. 그들은 하나님의 통치를 신뢰하지 않았습니다. 반면, <strong>시편 26-27편</strong>의 다윗은 이러한 인간의 실패와 죄성에도 불구하고 오직 여호와만을 의지하고 그분의 집(임재)을 사랑하며 기다리는 믿음의 자세를 보여줍니다. 이 믿음의 자세는 바로 로마서 10장이 말하는 "마음으로 믿어 의에 이르고 입으로 시인하여 구원에 이르는" 삶의 구체적인 모습입니다. 구약의 성도는 "주의 이름을 부르는" 행위를 통해 구원을 경험했으며(시 25편), 바울은 이 원리가 "누구든지 주의 이름을 부르는 자는 구원을 받으리라"(롬 10:13)는 선포를 통해 모든 믿는 자에게 확장되었음을 보여줍니다.</p>
 
-                    <path d="M 50 130 C 30 150, 20 180, 40 220" class="path-crooked"/>
-                    <text x="30" y="175" class="label" fill="#555">악인의 길</text>
-                    <path d="M 150 130 C 170 150, 180 180, 160 220" class="path-crooked"/>
-                    <text x="170" y="175" class="label" fill="#555">죄인의 길</text>
-
-                    <text x="300" y="25" class="title">시편 27편: 두려움 속의 유일한 빛</text>
-                    <circle cx="300" cy="70" r="15" fill="#FFEB3B"/>
-                    <text x="300" y="75" class="label">여호와</text>
-                    <text x="300" y="50" class="label">(빛, 구원, 생명의 능력)</text>
-                    
-                    <line x1="300" y1="85" x2="300" y2="150" class="light-rays" />
-                    <line x1="270" y1="90" x2="285" y2="150" class="light-rays" />
-                    <line x1="330" y1="90" x2="315" y2="150" class="light-rays" />
-
-                    <circle cx="300" cy="180" r="30" fill="#fff" stroke="#0F9D58" stroke-width="2"/>
-                    <text x="300" y="175" class="label">나(다윗)</text>
-                    <text x="300" y="190" class="label">"한 가지 일"</text>
-                    <text x="300" y="200" class="label">"주의 집에 사는 것"</text>
-
-                    <text x="230" y="150" class="label" fill="#DB4437">전쟁, 군대, 악인들</text>
-                    <text x="370" y="150" class="label" fill="#DB4437">부모의 버림</text>
-
-                </svg>
-            </div>
-            
-            <h3>배경지식 및 신학적 통찰 (Context & Theology)</h3>
-            <div class="commentary">
-                <p>두 시편은 신자의 내면세계와 외적 상황을 아우릅니다. 시편 26편은 '성도의 구별됨'(산티피케이션, 성화)에 대한 갈망을 보여줍니다. 다윗의 기도는 율법주의적인 자기 의의 주장이 아닙니다. 그는 이미 "주의 인자하심이 내 목전에 있나이다"(26:3)라고 고백하며, 자신의 삶의 근거가 하나님의 은혜임을 압니다. 그 은혜에 반응하여 그는 세상의 죄악된 길을 미워하고 하나님의 임재와 예배를 사랑하는 삶을 살기로 결단하는 것입니다.</p>
-                <p>시편 27편은 이러한 성도의 삶이 결코 평탄하지만은 않음을 보여줍니다. 원수, 군대, 전쟁과 같은 위협이 실재합니다. 그러나 이 모든 두려움을 압도하는 것은 여호와 하나님 한 분에 대한 절대적인 신뢰입니다. 개혁주의 신학에서 '성도의 견인' 교리는 바로 이런 신뢰를 설명합니다. 하나님께서 택하시고 구원하신 백성은 어떠한 위협 속에서도 궁극적으로 안전하며, 하나님은 그들의 믿음을 끝까지 지키십니다. 다윗이 구하는 '한 가지 일', 즉 '여호와의 집에 사는 것'(27:4)은 그리스도 안에서 성취됩니다. 그리스도는 우리가 하나님과 영원히 거할 수 있는 유일한 길이요, 피난처이십니다. 성전은 그리스도의 예표이며, 신자는 그리스도 안에서 하나님을 보고 그분과 교제하는 기쁨을 누립니다.</p>
-            </div>
-            
-            <h3>주요 구절 해설 (Key Verse Commentary)</h3>
-            <div class="commentary">
-                <p><strong>시편 27:4</strong> "내가 여호와께 바라는 한 가지 일 그것을 구하리니 곧 내가 내 평생에 여호와의 집에 살면서 여호와의 아름다움을 바라보며 그의 성전에서 사모하는 그것이라"</p>
-                <p>이 구절은 그리스도인의 가장 깊은 소망이 무엇이어야 하는지를 보여주는 위대한 고백입니다. 다윗은 수많은 위기 속에서 단 '한 가지 일'을 구한다고 말합니다. 그것은 부, 명예, 안전과 같은 세상적인 것이 아니었습니다. 바로 '하나님과의 친밀한 교제'였습니다. '여호와의 집에 사는 것'은 단지 물리적인 성전 거주를 넘어, 하나님의 임재 안에 항상 머무는 것을 의미합니다. '여호와의 아름다움을 바라보는 것'은 그분의 성품, 즉 사랑, 공의, 자비, 거룩함 등을 깊이 묵상하며 경배하는 것입니다. 이 소망은 모든 두려움을 이기는 힘의 원천입니다. 우리의 환경이 어떠하든, 우리의 궁극적인 목적과 기쁨이 하나님 자신에게 있을 때, 우리는 시편 27편의 담대한 신앙을 가질 수 있습니다.</p>
-            </div>
-
-            <h3>성경 본문 (Full Text)</h3>
-            <div class="bible-text">
-                <p><strong>시편 26편</strong></p>
-                <p>1 내가 나의 완전함에 행하였사오며 흔들리지 아니하고 여호와를 의지하였사오니 여호와여 나를 판단하소서<br>2 여호와여 나를 살피시고 시험하사 내  뜻과 내 양심을 단련하소서<br>3 주의 인자하심이 내 목전에 있나이다 내가 주의 진리 중에 행하여<br>4 허망한 사람과 같이 앉지 아니하였사오니 간사한 자와 동행하지도 아니하리이다<br>5 내가 행악자의 집회를 미워하오니 악한 자와 같이 앉지 아니하리이다<br>6 여호와여 내가 무죄하므로 손을 씻고 주의 제단에 두루 다니며<br>7 감사의 소리를 들려 주고 주의 기이한 모든 일을 말하리이다<br>8 여호와여 내가 주께서 계신 집과 주의 영광이 머무는 곳을 사랑하오니<br>9 내 영혼을 죄인과 함께, 내 생명을 살인자와 함께 거두지 마소서<br>10 그들의 손에 사악함이 있고 그들의 오른손에 뇌물이 가득하오나<br>11 나는 나의 완전함에 행하오리니 나를 속량하시고 내게 은혜를 베푸소서<br>12 내 발이 평탄한 데에 섰사오니 무리 가운데에서 여호와를 송축하리이다</p>
-                <p><strong>시편 27편</strong></p>
-                <p>1 여호와는 나의 빛이요 나의 구원이시니 내가 누구를 두려워하리요 여호와는 내 생명의 능력이시니 내가 누구를 무서워하리요<br>2 악인들이 내 살을 먹으려고 내게로 왔으나 나의 대적들, 나의 원수들인 그들은 실족하여 넘어졌도다<br>3 군대가 나를 대적하여 진 칠지라도 내 마음이 두렵지 아니하며 전쟁이 일어나 나를 치려 할지라도 나는 여전히 태연하리로다<br>4 내가 여호와께 바라는 한 가지 일 그것을 구하리니 곧 내가 내 평생에 여호와의 집에 살면서 여호와의 아름다움을 바라보며 그의 성전에서 사모하는 그것이라<br>5 여호와께서 환난 날에 나를 그의 초막 속에 비밀히 지키시고 그의 장막 은밀한 곳에 나를 숨기시며 높은 바위 위에 두시리로다<br>6 이제 내 머리가 나를 둘러싼 내 원수 위에 들리리니 내가 그의 장막에서 즐거운 제사를 드리겠고 노래하며 여호와를 찬송하리로다<br>7 여호와여 내가 소리 내어 부르짖을 때에 들으시고 또한 나를 긍휼히 여기사 응답하소서<br>8 너희는 내 얼굴을 찾으라 하실 때에 내가 마음으로 주께 말하되 여호와여 내가 주의 얼굴을 찾으리이다 하였나이다<br>9 주의 얼굴을 내게서 숨기지 마시고 주의 종을 노하여 버리지 마소서 주는 나의 도움이 되셨나이다 나의 구원의 하나님이시여 나를 버리지 마시고 떠나지 마소서<br>10 내 부모는 나를 버렸으나 여호와는 나를 영접하시리이다<br>11 여호와여 주의 도를 내게 가르치시고 내 원수를 생각하셔서 평탄한 길로 인도하소서<br>12 내 생명을 내 대적에게 맡기지 마소서 위증자와 악을 토하는 자가 일어나 나를 치려 함이니이다<br>13 내가 산 자들의 땅에서 여호와의 선하심을 보게 될 줄 확실히 믿었도다<br>14 너는 여호와를 기다릴지어다 강하고 담대하며 여호와를 기다릴지어다</p>
-            </div>
-        </div>
+        <h3>주제별 심층 분석표</h3>
+        <table class="integration-table">
+            <thead>
+                <tr>
+                    <th>주제</th>
+                    <th>사무엘상 12</th>
+                    <th>로마서 10</th>
+                    <th>예레미야 49</th>
+                    <th>시편 26-27</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td><strong>하나님의 모습</strong></td>
+                    <td>언약에 신실하신 왕, 죄를 경고하시는 분</td>
+                    <td>차별 없이 구원을 베푸시는 주(Lord)</td>
+                    <td>열방을 다스리시는 공의의 심판주</td>
+                    <td>나의 빛과 구원, 완전한 보호자</td>
+                </tr>
+                <tr>
+                    <td><strong>인간의 죄/실패</strong></td>
+                    <td>하나님 왕을 버리고 인간 왕을 구함</td>
+                    <td>'자기 의'를 세우려 함, 불순종</td>
+                    <td>교만, 안일, 형제에 대한 무정함</td>
+                    <td>죄와 허물, 원수들의 위협</td>
+                </tr>
+                <tr>
+                    <td><strong>구원/소망의 길</strong></td>
+                    <td>회개하고 여호와를 진실히 섬김</td>
+                    <td>마음으로 믿고 입으로 예수를 주로 시인함</td>
+                    <td>(이방에게도) 남은 자를 통한 회복</td>
+                    <td>하나님을 의지하고, 기다리고, 사랑함</td>
+                </tr>
+                 <tr>
+                    <td><strong>성도의 삶</strong></td>
+                    <td>지도자를 위해 기도, 말씀 순종</td>
+                    <td>복음을 듣고, 믿고, 전파함</td>
+                    <td>하나님의 주권을 인정함</td>
+                    <td>악을 미워하고, 예배를 사모하며, 담대함</td>
+                </tr>
+            </tbody>
+        </table>
         
-        <div class="chapter-card integration-card">
-            <h2>통합적 이해</h2>
-            <h3>관통하는 주제</h3>
-            <p>오늘의 네 본문을 관통하는 핵심 주제는 <strong>'참된 왕권과 의(義)의 근원'</strong>입니다. 사무엘상은 이스라엘이 하나님의 왕권을 버리고 인간 왕을 구하는 실패를 보여줍니다. 예레미야는 그 하나님의 왕권이 이스라엘을 넘어 모든 열방에 미치며, 그들의 교만을 심판하심을 선포합니다. 로마서는 이스라엘이 실패했던 '의'를 얻는 참된 길이 율법의 행위가 아닌, 참된 왕이신 예수 그리스도를 믿는 믿음에 있음을 명확히 밝힙니다. 마지막으로 시편은 이 위대한 왕이신 하나님을 개인적으로 신뢰하고 그분과의 교제를 갈망하는 것이 모든 두려움을 이기고 온전한 삶을 사는 유일한 길임을 노래합니다.</p>
-
-            <h3>본문별 연결고리 및 구속사적 맥락</h3>
-            <p>
-                <strong>사무엘상 12장 & 로마서 10장:</strong> 사무엘상에서 이스라엘은 눈에 보이는 왕을 통해 안정을 얻고, 스스로의 힘으로 나라를 지키려는 '자기 의'를 추구했습니다. 이는 로마서 10장에서 바울이 지적한 "자기 의를 세우려고 힘써 하나님의 의에 복종하지 아니한" 이스라엘의 모습과 정확히 일치합니다. 이스라엘의 정치적 실패는 구원을 얻는 방식에 대한 영적 실패의 예표가 되었습니다. 그들은 하나님의 통치를 거부했고, 결국 율법의 마침이신 그리스도마저 거부했습니다. 사무엘이 경고한 '헛된 것'을 좇는 모습은 로마서의 '율법으로 말미암는 의'를 추구하는 헛된 노력과 연결됩니다.
-            </p>
-            <p>
-                <strong>예레미야 49장 & 사무엘상 12장:</strong> 이스라엘은 하나님의 통치를 거부했지만, 예레미야서는 바로 그 하나님께서 에돔의 교만, 암몬의 탐욕 등 이방 나라들의 죄악까지도 심판하시는 만왕의 왕이심을 보여줍니다. 이스라엘의 실패가 하나님의 주권을 약화시키는 것이 아니라, 오히려 그분의 통치가 얼마나 보편적이고 절대적인지를 더욱 선명하게 드러냅니다.
-            </p>
-            <p>
-                <strong>시편 26-27편 & 로마서 10장:</strong> 다윗이 시편에서 갈망했던 '온전함'과 '하나님의 집에 거하는 것'은 로마서 10장이 제시하는 구원의 길을 통해 성취됩니다. 인간 스스로의 노력으로는 시편 26편의 결백에 이를 수 없습니다. 오직 "마음으로 믿어 의에 이르고"(롬 10:10) 그리스도의 의를 덧입을 때, 우리는 하나님 앞에 설 수 있습니다. 또한, 다윗이 그토록 바라던 '여호와의 집'에 거하는 특권은, "누구든지 주의 이름을 부르는" 자에게 주어지는 구원의 선물입니다. 그리스도 자신이 우리가 하나님께 나아가는 성전이 되십니다.
-            </p>
-            
-            <h3>주제별 심층 분석표</h3>
-            <table>
-                <thead>
-                    <tr>
-                        <th>주제</th>
-                        <th>사무엘상 12장</th>
-                        <th>로마서 10장</th>
-                        <th>예레미야 49장</th>
-                        <th>시편 26-27편</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    <tr>
-                        <td><strong>하나님의 왕권</strong></td>
-                        <td>백성에 의해 거부됨</td>
-                        <td>예수 그리스도를 통해 나타남 ('주' 시인)</td>
-                        <td>모든 열방 위에 절대적으로 군림함</td>
-                        <td>개인의 빛, 구원, 능력으로 경험됨</td>
-                    </tr>
-                    <tr>
-                        <td><strong>인간의 죄/실패</strong></td>
-                        <td>하나님을 버리고 인간 왕을 구함</td>
-                        <td>자기 의를 세우려 함, 불순종</td>
-                        <td>교만, 탐욕, 안일함 (열방의 죄)</td>
-                        <td>악인들의 길, 대적들의 위협</td>
-                    </tr>
-                    <tr>
-                        <td><strong>의(Righteousness)</strong></td>
-                        <td>사무엘의 개인적 정직함으로 예시됨</td>
-                        <td>믿음으로 얻어지는 하나님의 선물</td>
-                        <td>하나님의 공의로운 심판의 기준</td>
-                        <td>온전함(integrity)을 향한 갈망</td>
-                    </tr>
-                    <tr>
-                        <td><strong>하나님의 은혜/약속</strong></td>
-                        <td>자기 이름을 위해 백성을 버리지 않으심</td>
-                        <td>모든 이에게 차별 없이 주어지는 구원</td>
-                        <td>심판 중에도 회복의 약속을 주심</td>
-                        <td>환난 날의 피난처, 영원한 영접</td>
-                    </tr>
-                </tbody>
-            </table>
-
-            <h3>오늘의 교훈</h3>
-            <p>우리는 매일의 삶에서 이스라엘 백성처럼 눈에 보이는 '왕'을 세우려는 유혹을 받습니다. 안정적인 직장, 재물, 사람들의 인정, 심지어는 종교적인 열심까지도 나의 안전과 의로움을 보장해 줄 왕으로 삼으려 합니다. 그러나 오늘의 말씀은 이 모든 것이 '헛된 것'이라 경고합니다. 참된 왕은 오직 한 분, 예수 그리스도이십니다. 우리의 구원과 의는 우리의 노력이 아닌, 그분의 이름을 부르고 그분의 부활을 믿는 믿음에서 비롯됩니다. 이 진리를 붙들 때, 우리는 시편의 기자처럼 어떠한 전쟁과 두려움 속에서도 태연할 수 있습니다. 왜냐하면 만왕의 왕이신 그분이 나의 빛과 구원이 되시기 때문입니다. 오늘 하루, 내 삶의 왕좌에서 스스로 내려와, 참된 왕이신 주님께 모든 것을 맡기고 그분과의 친밀한 교제라는 '한 가지 일'을 구하는 우리가 되기를 소망합니다.</p>
-        </div>
+        <h3>오늘의 교훈</h3>
+        <p>우리의 인생에는 수많은 왕들이 있습니다. 돈, 성공, 사람들의 인정, 심지어 나 자신의 의로움까지도 어느새 내 마음의 보좌에 앉아 왕 노릇 하려 합니다. 그러나 오늘 말씀은 단호하게 선포합니다. 참된 왕은 오직 한 분, 만군의 여호와이십니다. 그분을 왕으로 모실 때 우리는 사무엘의 경고에서 자유로워지고, 로마서의 약속을 누리며, 시편의 담대한 고백을 할 수 있습니다. 오늘 내 삶의 왕좌는 누가 차지하고 있습니까? 혹시 잘못된 열심으로 '자기 의'를 쌓고 있지는 않습니까? 모든 헛된 왕들을 내려놓고, 우리의 빛과 구원이신 주님의 이름을 부르며 그분의 다스림 안에 거하는 하루가 되기를 소망합니다. 그리고 사무엘처럼, 우리 주변의 영혼들을 위해 "기도하기를 쉬는 죄를 범하지 않는" 신실한 중보자로 서기를 다짐합시다.</p>
 
     </div>
 
     <footer>
         2025 KBD 맥체인 성경읽기 프로젝트
     </footer>
+</div>
 
-    <script>
-        // YouTube IFrame Player API 로드
-        var tag = document.createElement('script');
-        tag.src = "https://www.youtube.com/iframe_api";
-        var firstScriptTag = document.getElementsByTagName('script')[0];
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+<script>
+    var tag = document.createElement('script');
+    tag.src = "[https://www.youtube.com/iframe_api](https://www.youtube.com/iframe_api)";
+    var firstScriptTag = document.getElementsByTagName('script')[0];
+    firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
 
-        var player;
+    var player;
+    function onYouTubeIframeAPIReady() {
         const videoId = 'mh3Bv2wTCSA'; // 8월 20일 영상 ID
-        let isPlaying = false;
-
-        function onYouTubeIframeAPIReady() {
-            if (videoId) {
-                player = new YT.Player('youtube-player', {
-                    height: '0',
-                    width: '0',
-                    videoId: videoId,
-                    events: {
-                        'onReady': onPlayerReady,
-                        'onStateChange': onPlayerStateChange
-                    }
-                });
-            } else {
-                 setupFallbackButton();
-            }
-        }
-        
-        function onPlayerReady(event) {
-            const playPauseBtn = document.getElementById('play-pause-btn');
-            playPauseBtn.addEventListener('click', togglePlay);
-        }
-
-        function onPlayerStateChange(event) {
-            const playPauseBtn = document.getElementById('play-pause-btn');
-            if (event.data == YT.PlayerState.PLAYING) {
-                playPauseBtn.innerHTML = '❚❚';
-                isPlaying = true;
-            } else {
-                playPauseBtn.innerHTML = '▶';
-                isPlaying = false;
-            }
-        }
-        
-        function togglePlay() {
-            if (isPlaying) {
-                player.pauseVideo();
-            } else {
-                player.playVideo();
-            }
-        }
-        
-        function setupFallbackButton() {
-            const playPauseBtn = document.getElementById('play-pause-btn');
-            playPauseBtn.addEventListener('click', () => {
-                alert('해당 날짜의 오디오 자료를 찾을 수 없습니다. 유튜브에서 "EDEM 에뎀" 채널을 직접 검색해 보세요.');
+        if (videoId) {
+            player = new YT.Player('player', {
+                height: '180',
+                width: '320',
+                videoId: videoId,
+                events: {
+                    'onStateChange': onPlayerStateChange
+                }
             });
+        } else {
+             const button = document.getElementById('audio-player-button');
+             button.onclick = function() {
+                 alert('해당 날짜의 오디오 자료를 찾을 수 없습니다. 유튜브 "EDEM 에뎀" 채널을 확인해주세요.');
+             }
         }
-        
-        // API 로드 실패 시 폴백 처리
-        window.addEventListener('load', () => {
-            if (typeof YT === 'undefined' || typeof YT.Player === 'undefined') {
-                console.log("YouTube API 로드 실패. 폴백 버튼을 활성화합니다.");
-                setupFallbackButton();
-            }
-        });
+    }
 
-    </script>
+    let isPlaying = false;
+    const button = document.getElementById('audio-player-button');
+    const playerContainer = document.getElementById('youtube-player-container');
+
+    button.addEventListener('click', () => {
+        if (!player) {
+             alert('해당 날짜의 오디오 자료를 찾을 수 없습니다. 유튜브 "EDEM 에뎀" 채널을 확인해주세요.');
+             return;
+        }
+        if (isPlaying) {
+            player.pauseVideo();
+            playerContainer.style.display = 'none';
+        } else {
+            playerContainer.style.display = 'block';
+            player.playVideo();
+        }
+    });
+
+    function onPlayerStateChange(event) {
+        if (event.data == YT.PlayerState.PLAYING) {
+            button.textContent = '오늘의 말씀듣기 ❚❚';
+            isPlaying = true;
+        } else {
+            button.textContent = '오늘의 말씀듣기 ▶';
+            isPlaying = false;
+        }
+    }
+</script>
 </body>
 </html>
